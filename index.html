@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#e8e9e9">
+<title>Kairon Flagon, ficha do mestre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<noscript><style>.painel[hidden]{display:block}</style></noscript>
+</head>
+<body>
+
+<header class="topo">
+  <a class="marca" href="#ficha" data-aba="ficha">Kairon Flagon</a>
+  <nav class="abas" role="tablist" aria-label="Seções da ficha">
+    <button type="button" role="tab" id="aba-ficha" aria-controls="painel-ficha" data-id="ficha" aria-selected="true">Ficha</button>
+    <button type="button" role="tab" id="aba-lore" aria-controls="painel-lore" data-id="lore" aria-selected="false" tabindex="-1">Lore bruta</button>
+    <button type="button" role="tab" id="aba-npcs" aria-controls="painel-npcs" data-id="npcs" aria-selected="false" tabindex="-1">NPCs</button>
+    <button type="button" role="tab" id="aba-resumo" aria-controls="painel-resumo" data-id="resumo" aria-selected="false" tabindex="-1">Resumo</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ FICHA ============ -->
+<section id="painel-ficha" class="painel" role="tabpanel" aria-labelledby="aba-ficha">
+  <div class="ficha-grid">
+
+    <figure class="retrato">
+      <img src="img/kairon.webp" width="1000" height="1778"
+           alt="Kairon: jovem de cabelo castanho cacheado com uma mecha clara cobrindo um olho, capa azul de gola alta, colete claro com botões dourados e calças marrons. Usa duas manoplas de garras metálicas com tubos verdes brilhando no antebraço e segura um livro velho.">
+    </figure>
+
+    <div class="folha">
+      <h1>Kairon Flagon</h1>
+      <p class="sub">25 anos, humano. Nos Aliados, é conhecido como Marck.</p>
+
+      <dl class="classes">
+        <div><dt>Classe social</dt><dd>Cronista de Guerra Urbano</dd></div>
+        <div><dt>Classe de trabalho</dt><dd>Inventor Louco</dd></div>
+        <div><dt>Classe militar</dt><dd>Bioquímico de Toxinas Sintéticas</dd></div>
+      </dl>
+
+      <h2>Atributos</h2>
+      <p class="nota">Dez pontos distribuídos. Cada tubo vai de 0 a 10.</p>
+      <ul class="tubos">
+        <li><span class="nome"><b>S</b>Força</span><span class="tubo" role="img" aria-label="Força 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
+        <li><span class="nome"><b>P</b>Percepção</span><span class="tubo" role="img" aria-label="Percepção 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
+        <li><span class="nome"><b>E</b>Resistência</span><span class="tubo" role="img" aria-label="Resistência 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
+        <li class="cheio"><span class="nome"><b>C</b>Carisma</span><span class="tubo" role="img" aria-label="Carisma 3 de 10"><i style="--v:3"></i></span><span class="valor">3</span></li>
+        <li class="cheio"><span class="nome"><b>I</b>Inteligência</span><span class="tubo" role="img" aria-label="Inteligência 5 de 10"><i style="--v:5"></i></span><span class="valor">5</span></li>
+        <li><span class="nome"><b>A</b>Agilidade</span><span class="tubo" role="img" aria-label="Agilidade 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
+        <li class="cheio"><span class="nome"><b>L</b>Sorte</span><span class="tubo" role="img" aria-label="Sorte 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span></li>
+      </ul>
+      <p class="vida"><span>Vida (HP)</span><strong>10</strong></p>
+
+      <h2>Equipamento inicial</h2>
+      <ul class="itens">
+        <li>
+          <strong>Manoplas de garras injetoras</strong>
+          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. Ainda não está pronta.</span>
+        </li>
+        <li>
+          <strong>Brasão da família Flagon</strong>
+          <span>A única prova da identidade verdadeira dele.</span>
+        </li>
+        <li>
+          <strong>Caderno criptografado</strong>
+          <span>Onde ele anota as ideias e descobertas de cientista.</span>
+        </li>
+      </ul>
+
+      <h2>Também carrega</h2>
+      <ul class="itens leve">
+        <li><strong>Rádio portátil de campo</strong></li>
+        <li><strong>Caderno de crônicas</strong></li>
+        <li><strong>Câmera</strong></li>
+      </ul>
+
+      <h2>Detalhes do visual</h2>
+      <p class="corpo">Só pra compor o personagem, sem peso na ficha: um livro grande e gasto, um frasco em forma de gato com água, um cabo dourado ornamentado preso à cintura e um brinco dourado.</p>
+
+      <h2>O que ele faz</h2>
+      <p class="corpo">É cientista do exército dos Aliados, na base central. Sintetiza toxinas e inventa de tudo que a ciência permitir, usando o que for preciso pra conseguir conhecimento.</p>
+      <p class="corpo">Fora do laboratório, escreve crônicas da vida urbana e conta histórias de todo tipo. Pra ele, todo mundo deve saber de tudo.</p>
+
+      <h2>Em aberto</h2>
+      <p class="corpo">O efeito do veneno, o que alimenta os tubos e o que ainda falha no protótipo ficam pra definir com o mestre.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ LORE BRUTA ============ -->
+<section id="painel-lore" class="painel texto" role="tabpanel" aria-labelledby="aba-lore" hidden>
+  <p class="aviso">Só o mestre lê esta aba. Aqui está o que os outros jogadores não podem saber.</p>
+
+  <h2>A verdade sobre Kairon</h2>
+  <p class="corpo">Kairon é um agente duplo. A Hydra mandou ele pros Aliados como espião, mas ele não é leal a nenhum dos dois lados. É leal ao lucro e ao conhecimento.</p>
+  <p class="corpo">Tudo que ele descobre na base central passa por um filtro. A Hydra recebe só o que ele escolhe mandar, e o resto ele vende no mercado negro. Ninguém além dele sabe disso.</p>
+
+  <h2>Linha do tempo</h2>
+  <ol class="linha">
+    <li>
+      <span class="quando">Desde o século XVII</span>
+      A família Flagon, mercante, enriquece no ducado da região da Hydra e acumula conhecimento de onde vier. O povo do ducado vive bem, e o império apelida a família de sanguessugas.
+    </li>
+    <li>
+      <span class="quando">Aos 16 anos</span>
+      Kairon é mandado pro lado dos Aliados, como espião da Hydra. Entra num orfanato como Marck, um órfão sem passado.
+    </li>
+    <li>
+      <span class="quando">Dos 16 aos 25</span>
+      A genialidade dele o faz crescer. Quase uma década de confiança construída, de órfão a cientista respeitado.
+    </li>
+    <li>
+      <span class="quando">Hoje, aos 25 anos</span>
+      Cientista do exército dos Aliados, na base central, em contato constante com a Hydra.
+    </li>
+  </ol>
+
+  <h2>Como ele opera</h2>
+  <ul class="pontos">
+    <li><strong>Rádio.</strong> Fala o tempo todo com a Hydra pelo rádio portátil de campo e manda informações.</li>
+    <li><strong>Filtro.</strong> A Hydra nunca recebe tudo. Ele decide o que vale mandar e o que vale vender.</li>
+    <li><strong>Mercado negro.</strong> Vende o resto da informação e vive do lucro. O dinheiro paga material de laboratório, itens mágicos e experimentos.</li>
+    <li><strong>Crônicas.</strong> Escreve com os pseudônimos F.Y, M.J e A.F, espalhando verdades e mentiras ao mesmo tempo, pros dois lados.</li>
+    <li><strong>Caderno criptografado.</strong> Guarda o que descobre, inclusive o que escolheu não mandar pra ninguém.</li>
+  </ul>
+  <p class="pendente">Em construção. Marcos vai escrever como funciona o submundo que Kairon conhece.</p>
+
+  <h2>Quem sabe o quê</h2>
+  <dl class="sabe">
+    <div><dt>Os Aliados</dt><dd>Acham que ele é um órfão que virou cientista dedicado.</dd></div>
+    <div><dt>A Hydra</dt><dd>Sabe que ele é o espião dela. Não sabe do filtro nem do mercado negro.</dd></div>
+    <div><dt>G</dt><dd>Acha que ele é um cientista dos Aliados que paga bem por itens mágicos. Não sabe de onde vem o dinheiro.</dd></div>
+    <div><dt>Outros jogadores</dt><dd>Não sabem de nada. Só descobrem em RP.</dd></div>
+  </dl>
+
+  <h2>O que ele quer</h2>
+  <p class="corpo">Conhecimento acima de tudo, bom ou ruim, verdadeiro ou falso. Um livro bem escrito vale mais pra ele do que centenas de moedas de ouro.</p>
+  <p class="corpo">Procura uma espécie de Torre de Babel. Pra ele é só uma lenda que pode existir, e a família guarda um único relato dela. É por isso que ele a busca.</p>
+  <p class="corpo">Quer poder pra controlar as massas e chegar ao topo, usando os países como peões na guerra. Pra isso usa pessoas, sangue e o que mais for preciso. Regra do mestre: nada sai do planeta.</p>
+
+  <h2>O mundo</h2>
+  <p class="corpo">Uma Primeira Guerra Mundial com magia. Existem dois lados: a Hydra, que faz o papel da Alemanha, e os Aliados. Híbridos e mortos-vivos existem e são comuns. Há também criaturas raras, só como cenário.</p>
+  <p class="corpo">O mestre é liberal e o mundo é aberto. As classes servem de inspiração, sem seguir a descrição à risca.</p>
+  <p class="pendente">Em construção. A lore do mundo e da magia ainda vai ser explicada.</p>
+
+  <h2>Ganchos em aberto</h2>
+  <p class="nota">Pontas soltas de propósito, pro mestre puxar do jeito que quiser.</p>
+  <ul class="ganchos">
+    <li>Quem escolheu Kairon pra missão, e se a própria família sabia o motivo.</li>
+    <li>Quem dirigia o orfanato e se sabia de onde ele veio.</li>
+    <li>A última ordem ou carta que a família mandou, e se ele guardou ou queimou.</li>
+    <li>O que o relato da Torre de Babel guardado pela família realmente diz.</li>
+    <li>Um pseudônimo que alguém além dele também está usando.</li>
+    <li>Uma informação que ele vendeu pros dois lados e que mudou o rumo de uma batalha.</li>
+    <li>Um comprador do mercado negro que paga demais e nunca explica por quê.</li>
+    <li>O G sabe mais sobre Kairon do que devia.</li>
+    <li>Uma sala ou projeto da base central onde ele nunca conseguiu entrar.</li>
+    <li>Uma página arrancada do caderno criptografado.</li>
+    <li>O que alimenta os tubos de veneno das manoplas, e por que o protótipo ainda falha.</li>
+    <li>Como ele seria descoberto, se algum dia for. Fica em aberto.</li>
+  </ul>
+</section>
+
+<!-- ============ NPCs ============ -->
+<section id="painel-npcs" class="painel texto" role="tabpanel" aria-labelledby="aba-npcs" hidden>
+  <h2>NPCs de Kairon</h2>
+  <p class="nota">Só os que ele conhece de perto. Quase todo o resto do mundo fica por conta do mestre.</p>
+
+  <article class="npc">
+    <h3>G</h3>
+    <p class="papel">Contato do submundo</p>
+    <p class="corpo">Homem. Ninguém sabe o que o apelido significa. Acha itens mágicos e sabe dizer se funcionam de verdade. Vende pro Kairon com o dinheiro das informações que ele negocia, e às vezes troca item por informação.</p>
+    <p class="pontas">Pontas soltas: Kairon nunca descobriu o nome verdadeiro dele nem de onde vêm os itens.</p>
+  </article>
+
+  <article class="npc">
+    <h3>Corvo</h3>
+    <p class="papel">Operador de rádio da Hydra</p>
+    <p class="corpo">É com ele que Kairon fala o tempo todo, mandando as informações que escolhe mandar.</p>
+    <p class="pendente">Em construção. Marcos vai criar o resto.</p>
+  </article>
+
+  <article class="npc">
+    <h3>Família Flagon</h3>
+    <p class="papel">Nobreza mercante da Hydra</p>
+    <p class="corpo">Rica desde o século XVII e conhecida como as sanguessugas do império. Seu território é bem estruturado, e o povo vive bem. Foi ela quem mandou Kairon pros Aliados aos 16 anos.</p>
+    <p class="pendente">Em construção. Marcos vai criar os membros da família.</p>
+  </article>
+
+  <h2>Espaços em aberto pro mestre</h2>
+  <ul class="vazios">
+    <li><strong>Direção do orfanato</strong>Quem recebeu o menino Marck.</li>
+    <li><strong>Oficial que confia nele</strong>Alguém da base central que dá liberdade a Kairon.</li>
+    <li><strong>Colega cientista</strong>Alguém da base central que trabalha perto dele.</li>
+    <li><strong>Resto do submundo</strong>Os outros nomes do mercado negro que ele conhece.</li>
+  </ul>
+</section>
+
+<!-- ============ RESUMO ============ -->
+<section id="painel-resumo" class="painel texto" role="tabpanel" aria-labelledby="aba-resumo" hidden>
+  <h2>Em poucas linhas</h2>
+  <ul class="pontos grande">
+    <li>Humano de 25 anos, nobre da família Flagon, da região da Hydra.</li>
+    <li>Cientista do exército dos Aliados, na base central. Lá é o Marck.</li>
+    <li>Agente duplo em segredo: a Hydra mandou, mas ele filtra o que entrega e vende o resto no mercado negro.</li>
+    <li>Escreve crônicas com os pseudônimos F.Y, M.J e A.F.</li>
+    <li>Procura a Torre de Babel e quer poder sobre as massas.</li>
+    <li>Contatos: G, que acha itens mágicos, e Corvo, o rádio da Hydra.</li>
+    <li>Luta com manoplas de garras que injetam veneno, ainda em protótipo.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="rodape">
+  <p>Arte do personagem assinada STN.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
