@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
@@ -21,6 +21,7 @@
     <button type="button" role="tab" id="aba-lore" aria-controls="painel-lore" data-id="lore" aria-selected="false" tabindex="-1">Lore bruta</button>
     <button type="button" role="tab" id="aba-npcs" aria-controls="painel-npcs" data-id="npcs" aria-selected="false" tabindex="-1">NPCs</button>
     <button type="button" role="tab" id="aba-resumo" aria-controls="painel-resumo" data-id="resumo" aria-selected="false" tabindex="-1">Resumo</button>
+    <button type="button" role="tab" id="aba-bolsa" aria-controls="painel-bolsa" data-id="bolsa" aria-selected="false" tabindex="-1">Bolsa</button>
   </nav>
 </header>
 
@@ -117,8 +118,8 @@
           <span>A identidade de órfão que ele usa entre os Aliados.</span>
         </li>
         <li>
-          <strong>Moedas</strong>
-          <span>O dinheiro do mercado negro. A quantia fica pra combinar com o mestre.</span>
+          <strong>Dólares</strong>
+          <span>O dinheiro do mercado negro. Saldo na bolsa: <b data-saldo>375 dólares</b>. A quantia ainda fica pra combinar com o mestre. <a class="ir" href="#bolsa" data-aba="bolsa">Abrir a bolsa</a></span>
         </li>
       </ul>
 
@@ -259,12 +260,53 @@
   </ul>
 </section>
 
+<!-- ============ BOLSA ============ -->
+<section id="painel-bolsa" class="painel texto bolsa" role="tabpanel" aria-labelledby="aba-bolsa" hidden>
+  <h2>Bolsa do Kairon</h2>
+  <p class="nota">Livro-caixa dos dólares do mercado negro. Os lançamentos ficam salvos só neste aparelho. Quem abrir a ficha em outro lugar vê o saldo inicial.</p>
+
+  <p class="bolsa-saldo" aria-live="polite"><span>Saldo</span><strong id="bolsa-total">375</strong><em id="bolsa-un">dólares</em></p>
+
+  <div class="bolsa-form">
+    <div class="bolsa-campo">
+      <label for="bolsa-valor">Quantos dólares</label>
+      <input id="bolsa-valor" inputmode="decimal" autocomplete="off" placeholder="0">
+    </div>
+    <div class="bolsa-campo">
+      <label for="bolsa-nota">Pra quê (opcional)</label>
+      <input id="bolsa-nota" maxlength="80" autocomplete="off" placeholder="Ex.: material de laboratório">
+    </div>
+    <div class="bolsa-botoes">
+      <button type="button" class="b-entrou" id="bolsa-entrou">Entrou</button>
+      <button type="button" class="b-saiu" id="bolsa-saiu">Saiu</button>
+    </div>
+    <p class="bolsa-erro" id="bolsa-erro" role="alert" hidden></p>
+  </div>
+
+  <details>
+    <summary>Corrigir o saldo</summary>
+    <div class="bolsa-form">
+      <p class="nota">Digite quanto ele tem agora. A bolsa lança a diferença no livro-caixa.</p>
+      <div class="bolsa-campo">
+        <label for="bolsa-certo">Saldo certo</label>
+        <input id="bolsa-certo" inputmode="decimal" autocomplete="off" placeholder="0">
+      </div>
+      <button type="button" class="b-ajustar" id="bolsa-ajustar">Ajustar saldo</button>
+    </div>
+  </details>
+
+  <h2>Livro-caixa</h2>
+  <ol class="bolsa-livro" id="bolsa-livro"></ol>
+  <p class="bolsa-vazio" id="bolsa-vazio" hidden>Nenhum lançamento ainda.</p>
+  <button type="button" class="bolsa-zerar" id="bolsa-zerar">Voltar ao saldo inicial</button>
+</section>
+
 </main>
 
 <footer class="rodape">
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
