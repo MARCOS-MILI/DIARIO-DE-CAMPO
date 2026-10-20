@@ -297,6 +297,23 @@ h2 {
 
 .itens span { display: block; margin-top: 0.15rem; color: var(--suave); }
 
+.itens li.com-simbolo {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.itens li.com-simbolo > strong,
+.itens li.com-simbolo > span { grid-column: 1; }
+
+.itens .simbolo {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 4.6rem;
+  height: auto;
+}
+
 .itens.leve li { padding: 0.45rem 0; }
 .itens.leve strong { font-size: 1.15rem; }
 
