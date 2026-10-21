@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
@@ -22,6 +22,7 @@
     <button type="button" role="tab" id="aba-npcs" aria-controls="painel-npcs" data-id="npcs" aria-selected="false" tabindex="-1">NPCs</button>
     <button type="button" role="tab" id="aba-resumo" aria-controls="painel-resumo" data-id="resumo" aria-selected="false" tabindex="-1">Resumo</button>
     <button type="button" role="tab" id="aba-bolsa" aria-controls="painel-bolsa" data-id="bolsa" aria-selected="false" tabindex="-1">Bolsa</button>
+    <button type="button" role="tab" id="aba-experimentos" aria-controls="painel-experimentos" data-id="experimentos" aria-selected="false" tabindex="-1">Experimentos</button>
   </nav>
 </header>
 
@@ -63,7 +64,7 @@
       <ul class="itens">
         <li>
           <strong>Manoplas de garras injetoras</strong>
-          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. Ainda não está pronta.</span>
+          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. Ainda não está pronta. <a class="ir" href="#experimentos" data-aba="experimentos">Ver o experimento Ruína</a></span>
         </li>
         <li class="com-simbolo">
           <strong>Brasão da família Flagon</strong>
@@ -317,12 +318,32 @@
   <button type="button" class="bolsa-zerar" id="bolsa-zerar">Voltar ao saldo inicial</button>
 </section>
 
+<!-- ============ EXPERIMENTOS ============ -->
+<section id="painel-experimentos" class="painel texto" role="tabpanel" aria-labelledby="aba-experimentos" hidden>
+  <h2>Ruína</h2>
+  <p class="nota">Experimento do Marck, em andamento</p>
+
+  <p class="corpo">Marck nunca precisou inventar a ideia do zero. Ela já estava pronta, escrita na fórmula de um remédio que ele conhecia de cor: uma droga regeneradora, criada por uma doutora que ele nunca chegou a conhecer, que ensina a célula a se refazer num ritmo que o corpo normalmente não aguentaria.</p>
+
+  <p class="corpo">Foi numa noite de bancada, com o lampião aceso e o caderno aberto, que ele percebeu o que os outros não perceberiam. A fórmula não curava. Ela acelerava. E o que acelera a vida de uma célula pode acelerar o fim dela, se a mão certa girar a chave ao contrário.</p>
+
+  <p class="corpo">O arsênio já fazia metade do trabalho. Ele não corta nem queima por fora. Entra e sufoca a célula por dentro, cortando a energia de que ela precisa pra viver. Marck pensou: e se a célula, já sem fôlego, recebesse a ordem de se reconstruir sem descanso? Ela trabalharia até quebrar.</p>
+
+  <p class="corpo">No papel dele, o resultado é uma morte que começa pequena. A pele em volta do corte fica cinza e cede. Depois o corpo enfraquece, o osso perde firmeza e, por fim, a medula, onde o sangue nasce, para de responder. Cada célula que cai solta o próprio veneno sobre as vizinhas, e a ruína avança sozinha, sem precisar de nova dose.</p>
+
+  <p class="corpo">Ele tentou levar a ideia pro ar, imaginando um gás pras trincheiras. Falhou. No ar, o composto se desfazia antes de chegar a alguém. Então voltou pra luva, onde a garra leva o veneno direto à carne, sem tempo de se perder.</p>
+
+  <p class="corpo">Restam três problemas que ele ainda anota no caderno: o arsênio corrói os tubos, então o composto não pode esperar muito tempo guardado; o efeito completo leva dias; e a velocidade que ele quer só vem com um catalisador arcano que ele ainda não domina. Antídoto, por ora, não existe.</p>
+
+  <p class="pendente">Efeitos e tempos pendentes de aprovação do mestre</p>
+</section>
+
 </main>
 
 <footer class="rodape">
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
