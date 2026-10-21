@@ -206,8 +206,19 @@ h2 {
   display: grid;
   grid-template-columns: 8.2rem 1fr 1.8rem;
   align-items: center;
-  gap: 0.7rem;
+  column-gap: 0.7rem;
+  row-gap: 0.1rem;
 }
+
+.tubos .crit {
+  grid-column: 2 / 4;
+  color: var(--suave);
+  font-size: 0.95rem;
+  line-height: 1.2;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.tubos .crit b { color: var(--tinta); font-weight: 700; }
 
 .tubos .nome { font: 400 1.2rem/1.2 var(--titulo); }
 
@@ -268,15 +279,146 @@ h2 {
   .tubo i { animation: none; }
 }
 
-.vida {
+/* Barra de vida */
+
+.vida-box { max-width: 40rem; margin: 1.8rem 0 0; }
+
+.vida-topo {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   gap: 0.9rem;
-  margin: 1.5rem 0 0;
 }
 
-.vida span { font: 400 1.35rem/1 var(--titulo); }
-.vida strong { font: italic 400 2.6rem/1 var(--titulo); color: var(--veneno-esc); }
+.vida-rot { font: 400 1.35rem/1 var(--titulo); }
+
+.vida-num {
+  font: italic 400 2.6rem/1 var(--titulo);
+  color: var(--veneno-esc);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.vida-num small { font: 400 1.35rem/1 var(--titulo); font-style: normal; color: var(--suave); }
+
+.vida-box.vida-baixo .vida-num { color: var(--vermelho); }
+
+.vida-barra {
+  position: relative;
+  height: 30px;
+  margin-top: 0.6rem;
+  overflow: hidden;
+  border: 1.5px solid rgba(18, 26, 51, 0.6);
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.vida-barra.com-marcas {
+  background-image: linear-gradient(90deg, transparent calc(100% - 1px), rgba(18, 26, 51, 0.2) 0);
+  background-size: calc(100% / var(--max)) 100%;
+}
+
+.vida-barra i {
+  display: block;
+  height: 100%;
+  width: var(--p, 100%);
+  border-radius: 14px 0 0 14px;
+  background: linear-gradient(#b4f59f 0%, #6fd957 40%, #2f9e45 100%);
+  transition: width 0.35s ease;
+}
+
+.vida-barra::after {
+  content: "";
+  position: absolute;
+  inset: 4px 8px auto 8px;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+.vida-box.vida-medio .vida-barra i { background: linear-gradient(#f3d98b 0%, #d6a93a 45%, #a9781c 100%); }
+.vida-box.vida-baixo .vida-barra i { background: linear-gradient(#e8908a 0%, #b9423b 45%, #8c2f2a 100%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .vida-barra i { transition: none; }
+}
+
+.vida-info {
+  min-height: 1.6em;
+  margin: 0.5rem 0 0.4rem;
+  color: var(--suave);
+  font-style: italic;
+}
+
+.vida-form { display: grid; gap: 0.9rem; }
+
+.vida-campo { display: grid; gap: 0.3rem; min-width: 0; }
+.vida-campo label { font: 400 1.2rem/1.2 var(--titulo); }
+
+.vida-box input {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0.8rem;
+  border: 1.5px solid rgba(18, 26, 51, 0.6);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--tinta);
+  font: 400 1.2rem/1.3 var(--texto);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.vida-box input::placeholder { color: var(--suave); opacity: 0.75; }
+
+.vida-botoes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+
+.vida-box button {
+  min-height: 3.1rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  font: 400 1.35rem/1.2 var(--titulo);
+  cursor: pointer;
+}
+
+.v-perdeu { background: var(--vermelho); color: #fff; }
+.v-curou { background: var(--veneno-esc); color: #fff; }
+.v-salvar { background: var(--tinta); color: var(--papel); }
+
+.vida-box button.vida-cheia {
+  min-height: 2.4rem;
+  padding: 0.2rem 0;
+  border-radius: 0;
+  background: none;
+  color: var(--suave);
+  font: 400 1rem/1.2 var(--texto);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.vida-erro {
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-left: 4px solid var(--vermelho);
+  background: rgba(246, 247, 247, 0.7);
+  font-style: italic;
+}
+
+.vida-box details {
+  margin: 0.6rem 0 0;
+  padding: 0.5rem 0;
+  border-top: 1px dotted var(--linha);
+  border-bottom: 1px dotted var(--linha);
+}
+
+.vida-box summary {
+  display: flex;
+  align-items: center;
+  min-height: 2.4rem;
+  font: 400 1.25rem/1.2 var(--titulo);
+  cursor: pointer;
+}
+
+.vida-box details[open] summary { margin-bottom: 0.7rem; }
 
 /* Itens */
 

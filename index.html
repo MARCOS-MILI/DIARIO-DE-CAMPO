@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
@@ -48,17 +48,54 @@
       </dl>
 
       <h2>Atributos</h2>
-      <p class="nota">Dez pontos distribuídos. Cada tubo vai de 0 a 10.</p>
+      <p class="nota">Começou com dez pontos distribuídos. Cada tubo vai de 0 a 10. Os críticos nos testes de um atributo fazem ele subir 1 ponto, e quanto mais alto ele está, mais críticos pedem. A contagem fica embaixo de cada tubo.</p>
       <ul class="tubos">
-        <li><span class="nome"><b>S</b>Força</span><span class="tubo" role="img" aria-label="Força 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
-        <li><span class="nome"><b>P</b>Percepção</span><span class="tubo" role="img" aria-label="Percepção 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
-        <li><span class="nome"><b>E</b>Resistência</span><span class="tubo" role="img" aria-label="Resistência 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
-        <li class="cheio"><span class="nome"><b>C</b>Carisma</span><span class="tubo" role="img" aria-label="Carisma 3 de 10"><i style="--v:3"></i></span><span class="valor">3</span></li>
-        <li class="cheio"><span class="nome"><b>I</b>Inteligência</span><span class="tubo" role="img" aria-label="Inteligência 5 de 10"><i style="--v:5"></i></span><span class="valor">5</span></li>
-        <li><span class="nome"><b>A</b>Agilidade</span><span class="tubo" role="img" aria-label="Agilidade 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span></li>
-        <li class="cheio"><span class="nome"><b>L</b>Sorte</span><span class="tubo" role="img" aria-label="Sorte 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span></li>
+        <li><span class="nome"><b>S</b>Força</span><span class="tubo" role="img" aria-label="Força 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio"><span class="nome"><b>P</b>Percepção</span><span class="tubo" role="img" aria-label="Percepção 1 de 10"><i style="--v:1"></i></span><span class="valor">1</span><span class="crit"><b>0</b> críticos</span></li>
+        <li><span class="nome"><b>E</b>Resistência</span><span class="tubo" role="img" aria-label="Resistência 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio"><span class="nome"><b>C</b>Carisma</span><span class="tubo" role="img" aria-label="Carisma 3 de 10"><i style="--v:3"></i></span><span class="valor">3</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio"><span class="nome"><b>I</b>Inteligência</span><span class="tubo" role="img" aria-label="Inteligência 6 de 10"><i style="--v:6"></i></span><span class="valor">6</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio"><span class="nome"><b>A</b>Agilidade</span><span class="tubo" role="img" aria-label="Agilidade 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span><span class="crit"><b>1</b> de 4 críticos</span></li>
+        <li class="cheio"><span class="nome"><b>L</b>Sorte</span><span class="tubo" role="img" aria-label="Sorte 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span><span class="crit"><b>0</b> críticos</span></li>
       </ul>
-      <p class="vida"><span>Vida (HP)</span><strong>10</strong></p>
+
+      <div class="vida-box" id="vida">
+        <div class="vida-topo">
+          <span class="vida-rot">Vida (HP)</span>
+          <strong class="vida-num" aria-live="polite"><span id="vida-atual">10</span><small> / <span id="vida-max">10</span></small></strong>
+        </div>
+        <div class="vida-barra com-marcas" id="vida-barra" role="progressbar" aria-label="Vida" aria-valuemin="0" aria-valuemax="10" aria-valuenow="10" style="--max:10"><i id="vida-fill" style="--p:100%"></i></div>
+        <p class="vida-info" id="vida-info" aria-live="polite"></p>
+
+        <div class="vida-form">
+          <div class="vida-campo">
+            <label for="vida-valor">Quantos pontos (em branco vale 1)</label>
+            <input id="vida-valor" inputmode="numeric" autocomplete="off" placeholder="1">
+          </div>
+          <div class="vida-botoes">
+            <button type="button" class="v-perdeu" id="vida-perdeu">Perdeu</button>
+            <button type="button" class="v-curou" id="vida-curou">Curou</button>
+          </div>
+          <p class="vida-erro" id="vida-erro" role="alert" hidden></p>
+          <button type="button" class="vida-cheia" id="vida-cheia">Voltar à vida cheia</button>
+        </div>
+
+        <details>
+          <summary>Ajustar vida máxima ou atual</summary>
+          <div class="vida-form">
+            <div class="vida-campo">
+              <label for="vida-novomax">Vida máxima</label>
+              <input id="vida-novomax" inputmode="numeric" autocomplete="off" placeholder="10">
+            </div>
+            <div class="vida-campo">
+              <label for="vida-novaatual">Vida agora</label>
+              <input id="vida-novaatual" inputmode="numeric" autocomplete="off" placeholder="10">
+            </div>
+            <p class="vida-erro" id="vida-erro2" role="alert" hidden></p>
+            <button type="button" class="v-salvar" id="vida-salvar">Salvar</button>
+          </div>
+        </details>
+      </div>
 
       <h2>Equipamento inicial</h2>
       <ul class="itens">
@@ -352,6 +389,6 @@
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

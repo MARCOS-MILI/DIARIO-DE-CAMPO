@@ -245,3 +245,154 @@
 
   render();
 })();
+
+/* ---------- Vida: barra com perder e curar, salva no aparelho ---------- */
+(function () {
+  var CHAVE = 'kairon-vida-v1';
+  var PADRAO = { atual: 10, max: 10 };
+  var memoria = null;
+
+  function $(id) { return document.getElementById(id); }
+  var caixa = $('vida');
+  if (!caixa) return;
+
+  var atualEl = $('vida-atual'), maxEl = $('vida-max'), barra = $('vida-barra'), fill = $('vida-fill');
+  var infoEl = $('vida-info'), erroEl = $('vida-erro'), erro2El = $('vida-erro2');
+  var valorEl = $('vida-valor'), novoMaxEl = $('vida-novomax'), novaAtualEl = $('vida-novaatual');
+
+  function inteiro(n) { return typeof n === 'number' && isFinite(n) && Math.floor(n) === n; }
+
+  function valido(e) {
+    return e && inteiro(e.atual) && inteiro(e.max) && e.max >= 1 && e.max <= 999 && e.atual >= 0 && e.atual <= e.max;
+  }
+
+  function ler() {
+    try {
+      var cru = localStorage.getItem(CHAVE);
+      if (cru) {
+        var e = JSON.parse(cru);
+        if (valido(e)) return { atual: e.atual, max: e.max };
+      }
+    } catch (x) {}
+    var base = memoria || PADRAO;
+    return { atual: base.atual, max: base.max };
+  }
+
+  function gravar(e) {
+    memoria = { atual: e.atual, max: e.max };
+    try { localStorage.setItem(CHAVE, JSON.stringify(memoria)); } catch (x) {}
+  }
+
+  // só números inteiros, até 3 dígitos
+  function lerInteiro(texto) {
+    var t = String(texto).replace(/\s/g, '');
+    if (!/^\d{1,3}$/.test(t)) return null;
+    return parseInt(t, 10);
+  }
+
+  function mostrarErro(el, msg) { el.textContent = msg; el.hidden = false; }
+  function limparErros() { erroEl.hidden = true; erro2El.hidden = true; }
+
+  function render(mensagem) {
+    var e = ler();
+    var pct = Math.round(e.atual / e.max * 100);
+
+    atualEl.textContent = e.atual;
+    maxEl.textContent = e.max;
+    barra.setAttribute('aria-valuenow', e.atual);
+    barra.setAttribute('aria-valuemax', e.max);
+    barra.style.setProperty('--max', e.max);
+    barra.classList.toggle('com-marcas', e.max <= 30);
+    fill.style.setProperty('--p', pct + '%');
+    caixa.classList.toggle('vida-baixo', pct <= 30);
+    caixa.classList.toggle('vida-medio', pct > 30 && pct <= 60);
+    novoMaxEl.placeholder = e.max;
+    novaAtualEl.placeholder = e.atual;
+
+    if (typeof mensagem === 'string') infoEl.textContent = mensagem;
+    else infoEl.textContent = e.atual === 0 ? 'Sem vida.' : '';
+  }
+
+  function mudar(sinal) {
+    var q = valorEl.value.trim() === '' ? 1 : lerInteiro(valorEl.value);
+    if (q === null || q === 0) {
+      mostrarErro(erroEl, 'Digite só números inteiros, sem vírgula. Em branco vale 1.');
+      valorEl.focus();
+      return;
+    }
+    limparErros();
+    var e = ler();
+    var novo = Math.max(0, Math.min(e.max, e.atual + sinal * q));
+    var real = novo - e.atual;
+
+    if (real === 0) {
+      render(sinal < 0 ? 'Já está sem vida.' : 'Já está na vida máxima.');
+      return;
+    }
+
+    gravar({ atual: novo, max: e.max });
+    valorEl.value = '';
+    if (real < 0) {
+      render('Perdeu ' + (-real) + (-real < q ? ', que era o que restava.' : '.'));
+    } else {
+      render('Curou ' + real + (real < q ? ', até a vida máxima.' : '.'));
+    }
+  }
+
+  $('vida-perdeu').addEventListener('click', function () { mudar(-1); });
+  $('vida-curou').addEventListener('click', function () { mudar(1); });
+
+  $('vida-cheia').addEventListener('click', function () {
+    limparErros();
+    var e = ler();
+    if (e.atual === e.max) { render('Já está na vida máxima.'); return; }
+    gravar({ atual: e.max, max: e.max });
+    render('Vida cheia.');
+  });
+
+  $('vida-salvar').addEventListener('click', function () {
+    var m = novoMaxEl.value.trim();
+    var a = novaAtualEl.value.trim();
+    if (m === '' && a === '') {
+      mostrarErro(erro2El, 'Digite a vida máxima, a vida agora, ou as duas.');
+      return;
+    }
+
+    var e = ler();
+    var max = e.max, atual = e.atual;
+
+    if (m !== '') {
+      var mm = lerInteiro(m);
+      if (mm === null || mm < 1) {
+        mostrarErro(erro2El, 'A vida máxima precisa ser um número inteiro, de 1 pra cima.');
+        novoMaxEl.focus();
+        return;
+      }
+      max = mm;
+      atual = Math.min(atual, max);
+    }
+
+    if (a !== '') {
+      var aa = lerInteiro(a);
+      if (aa === null) {
+        mostrarErro(erro2El, 'A vida agora precisa ser um número inteiro, de 0 pra cima.');
+        novaAtualEl.focus();
+        return;
+      }
+      if (aa > max) {
+        mostrarErro(erro2El, 'A vida agora não pode passar da máxima, que é ' + max + '.');
+        novaAtualEl.focus();
+        return;
+      }
+      atual = aa;
+    }
+
+    limparErros();
+    gravar({ atual: atual, max: max });
+    novoMaxEl.value = '';
+    novaAtualEl.value = '';
+    render('Salvo.');
+  });
+
+  render();
+})();
