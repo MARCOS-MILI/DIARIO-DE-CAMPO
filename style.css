@@ -1095,6 +1095,15 @@ h2 {
   font-style: italic;
 }
 
+.proj-data {
+  display: block;
+  margin-top: 0.6rem;
+  color: var(--suave);
+  font: 700 0.82rem/1.3 var(--texto);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .proj-pe {
   display: flex;
   flex-wrap: wrap;
