@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
@@ -58,15 +58,15 @@
       </dl>
 
       <h2>Atributos</h2>
-      <p class="nota">Começou com dez pontos distribuídos. Cada tubo vai de 0 a 10. Os críticos nos testes de um atributo fazem ele subir 1 ponto, e quanto mais alto ele está, mais críticos pedem. A contagem fica embaixo de cada tubo.</p>
-      <ul class="tubos">
-        <li><span class="nome"><b>S</b>Força</span><span class="tubo" role="img" aria-label="Força 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span><span class="crit"><b>0</b> críticos</span></li>
-        <li class="cheio"><span class="nome"><b>P</b>Percepção</span><span class="tubo" role="img" aria-label="Percepção 1 de 10"><i style="--v:1"></i></span><span class="valor">1</span><span class="crit"><b>0</b> críticos</span></li>
-        <li><span class="nome"><b>E</b>Resistência</span><span class="tubo" role="img" aria-label="Resistência 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span><span class="crit"><b>0</b> críticos</span></li>
-        <li class="cheio"><span class="nome"><b>C</b>Carisma</span><span class="tubo" role="img" aria-label="Carisma 3 de 10"><i style="--v:3"></i></span><span class="valor">3</span><span class="crit"><b>0</b> críticos</span></li>
-        <li class="cheio"><span class="nome"><b>I</b>Inteligência</span><span class="tubo" role="img" aria-label="Inteligência 6 de 10"><i style="--v:6"></i></span><span class="valor">6</span><span class="crit"><b>0</b> críticos</span></li>
-        <li class="cheio"><span class="nome"><b>A</b>Agilidade</span><span class="tubo" role="img" aria-label="Agilidade 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span><span class="crit"><b>1</b> de 4 críticos</span></li>
-        <li class="cheio"><span class="nome"><b>L</b>Sorte</span><span class="tubo" role="img" aria-label="Sorte 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span><span class="crit"><b>0</b> críticos</span></li>
+      <p class="nota">Começou com dez pontos distribuídos. Cada tubo vai de 0 a 10. Os críticos nos testes de um atributo fazem ele subir 1 ponto, e quanto mais alto ele está, mais críticos pedem. A contagem fica embaixo de cada tubo: toque em + a cada crítico.</p>
+      <ul class="tubos" data-semente="2026-10-23">
+        <li data-attr="S" data-nome="Força" data-v="0" data-c="0" data-m=""><span class="nome"><b>S</b>Força</span><span class="tubo" role="img" aria-label="Força 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio" data-attr="P" data-nome="Percepção" data-v="1" data-c="0" data-m=""><span class="nome"><b>P</b>Percepção</span><span class="tubo" role="img" aria-label="Percepção 1 de 10"><i style="--v:1"></i></span><span class="valor">1</span><span class="crit"><b>0</b> críticos</span></li>
+        <li data-attr="E" data-nome="Resistência" data-v="0" data-c="0" data-m=""><span class="nome"><b>E</b>Resistência</span><span class="tubo" role="img" aria-label="Resistência 0 de 10"><i style="--v:0"></i></span><span class="valor">0</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio" data-attr="C" data-nome="Carisma" data-v="3" data-c="0" data-m=""><span class="nome"><b>C</b>Carisma</span><span class="tubo" role="img" aria-label="Carisma 3 de 10"><i style="--v:3"></i></span><span class="valor">3</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio" data-attr="I" data-nome="Inteligência" data-v="6" data-c="0" data-m=""><span class="nome"><b>I</b>Inteligência</span><span class="tubo" role="img" aria-label="Inteligência 6 de 10"><i style="--v:6"></i></span><span class="valor">6</span><span class="crit"><b>0</b> críticos</span></li>
+        <li class="cheio" data-attr="A" data-nome="Agilidade" data-v="2" data-c="1" data-m="4"><span class="nome"><b>A</b>Agilidade</span><span class="tubo" role="img" aria-label="Agilidade 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span><span class="crit"><b>1</b> de 4 críticos</span></li>
+        <li class="cheio" data-attr="L" data-nome="Sorte" data-v="2" data-c="0" data-m=""><span class="nome"><b>L</b>Sorte</span><span class="tubo" role="img" aria-label="Sorte 2 de 10"><i style="--v:2"></i></span><span class="valor">2</span><span class="crit"><b>0</b> críticos</span></li>
       </ul>
 
       <div class="vida-box" id="vida">
@@ -105,6 +105,12 @@
             <button type="button" class="v-salvar" id="vida-salvar">Salvar</button>
           </div>
         </details>
+      </div>
+
+      <div class="status" id="status" role="group" aria-label="Energia, fome e sede" data-semente="2026-10-23">
+        <div class="stat" data-chave="energia" data-nome="Energia" data-atual="9" data-max="10" data-cor="energia"><p class="stat-sem-js">Energia: <b>9</b> de 10</p></div>
+        <div class="stat" data-chave="fome" data-nome="Fome" data-atual="9" data-max="10" data-cor="fome"><p class="stat-sem-js">Fome: <b>9</b> de 10</p></div>
+        <div class="stat" data-chave="sede" data-nome="Sede" data-atual="9" data-max="10" data-cor="sede"><p class="stat-sem-js">Sede: <b>9</b> de 10</p></div>
       </div>
 
       <h2>Equipamento inicial</h2>
@@ -471,6 +477,6 @@
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=8"></script>
+<script src="app.js?v=9"></script>
 </body>
 </html>
