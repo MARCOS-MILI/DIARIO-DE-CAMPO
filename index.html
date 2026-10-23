@@ -9,10 +9,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
+
+<svg class="svg-defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <filter id="tinta-carimbo" x="-4%" y="-6%" width="108%" height="112%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="4" result="ruido"/>
+    <feDisplacementMap in="SourceGraphic" in2="ruido" scale="1.1" xChannelSelector="R" yChannelSelector="G" result="tremido"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="9" result="manchas"/>
+    <feColorMatrix in="manchas" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -14 0 0 0 10.9" result="falhas"/>
+    <feComposite in="tremido" in2="falhas" operator="in"/>
+  </filter>
+</svg>
 
 <header class="topo">
   <a class="marca" href="#ficha" data-aba="ficha">Kairon Flagon</a>
@@ -22,7 +32,7 @@
     <button type="button" role="tab" id="aba-npcs" aria-controls="painel-npcs" data-id="npcs" aria-selected="false" tabindex="-1">NPCs</button>
     <button type="button" role="tab" id="aba-resumo" aria-controls="painel-resumo" data-id="resumo" aria-selected="false" tabindex="-1">Resumo</button>
     <button type="button" role="tab" id="aba-bolsa" aria-controls="painel-bolsa" data-id="bolsa" aria-selected="false" tabindex="-1">Bolsa</button>
-    <button type="button" role="tab" id="aba-experimentos" aria-controls="painel-experimentos" data-id="experimentos" aria-selected="false" tabindex="-1">Experimentos</button>
+    <button type="button" role="tab" id="aba-projetos" aria-controls="painel-projetos" data-id="projetos" aria-selected="false" tabindex="-1">Projetos</button>
   </nav>
 </header>
 
@@ -101,7 +111,7 @@
       <ul class="itens">
         <li>
           <strong>Manoplas de garras injetoras</strong>
-          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. Ainda não está pronta. <a class="ir" href="#experimentos" data-aba="experimentos">Ver o experimento Ruína</a></span>
+          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. Ainda não está pronta. <a class="ir" href="#projeto-01" data-aba="projetos" data-abrir="projeto-01">Ver o Projeto 01</a> · <a class="ir" href="#projeto-02" data-aba="projetos" data-abrir="projeto-02">Ver a Ruína (Projeto 02)</a></span>
         </li>
         <li class="com-simbolo">
           <strong>Brasão da família Flagon</strong>
@@ -355,32 +365,104 @@
   <button type="button" class="bolsa-zerar" id="bolsa-zerar">Voltar ao saldo inicial</button>
 </section>
 
-<!-- ============ EXPERIMENTOS ============ -->
-<section id="painel-experimentos" class="painel texto" role="tabpanel" aria-labelledby="aba-experimentos" hidden>
-  <h2>Ruína</h2>
-  <p class="nota">Experimento do Kairon, em andamento</p>
+<!-- ============ PROJETOS ============ -->
+<section id="painel-projetos" class="painel texto projetos" role="tabpanel" aria-labelledby="aba-projetos" hidden>
+  <h2>Projetos do Kairon</h2>
+  <p class="nota">Invenções e experimentos dele. Toque num cartão pra ler o projeto inteiro.</p>
 
-  <p class="corpo">Os outros viam um remédio. Kairon viu uma ferramenta.</p>
+  <article class="projeto est-prototipo" id="projeto-01">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">01</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 01</span>
+          <span class="proj-estado">Protótipo</span>
+        </span>
+        <h3 class="proj-nome">Giftklaue</h3>
+        <span class="proj-sub">Garra Venenosa</span>
+        <span class="proj-pe">
+          <span class="carimbo">Pendente de aprovação do mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <div class="proj-ficha">
+          <p><span class="rot">T.O Categoria:</span> a definir</p>
+          <p class="classe">PROJETO BÉLICO.</p>
+        </div>
+        <p class="corpo">Em repouso, a Giftklaue é uma luva de couro escuro, simples, sem nada que chame atenção além de um punho um pouco mais grosso que o normal. Quem olha vê só a luva de um cientista. Ao acionar o mecanismo do punho, placas de aço leve e bronze deslizam pra fora do antebraço, cobrem a mão e o braço, e a luva vira uma manopla blindada, com garras ocas de aço saindo das pontas dos dedos. Tudo acontece num movimento só. O contrário também vale: as placas recolhem e o usuário volta a parecer inofensivo.</p>
+        <p class="corpo">Pelo antebraço correm tubos de vidro grosso, escolhidos porque o vidro aguenta o veneno que o metal não aguenta. Cada golpe das garras injeta o conteúdo no alvo, como a presa de uma cobra. O protótipo atual carrega um veneno de luta, que deixa o corpo dormente e derruba os atributos físicos.</p>
+        <p class="corpo curto">O protótipo ainda não está pronto. Kairon trabalha em quatro melhorias:</p>
+        <ul class="pontos">
+          <li><strong>Hidráulica:</strong> pistões nos dedos e no antebraço pra dar à manopla a força que ele não tem. A força vem da manopla, não do corpo.</li>
+          <li><strong>Dardos:</strong> agulhas de veneno que saltam dos dedos e acertam à distância, cada uma com uma dose selada.</li>
+          <li><strong>Tubos melhores:</strong> mais resistentes e com mais controle da dose.</li>
+          <li><strong>Arsênio:</strong> ainda não pode ser carregado, porque o arsênio corrói o metal. Resolver isso é o que separa o protótipo da Ruína.</li>
+        </ul>
+        <p class="rotulo">Soluções em estudo:</p>
+        <ul class="pontos">
+          <li>Nada de metal encostando no composto: tubos e válvulas de vidro e porcelana, vedações de cera ou borracha e pontas das garras banhadas a ouro.</li>
+          <li>Ampolas seladas e trocáveis, que só quebram quando a garra perfura. Os dardos seguem a mesma ideia: cada um é uma ampola com agulha, descartável.</li>
+          <li>Dois compartimentos: o arsênio num tubo e a fórmula da doutora em outro, que só se misturam na ponta da garra, no momento do golpe.</li>
+          <li>Um disco regulador no punho muda a proporção da mistura. O catalisador arcano entraria depois nesse mesmo sistema.</li>
+          <li>O tubo da fórmula sozinho cura, então a mesma manopla poderia salvar um aliado.</li>
+        </ul>
+        <p class="pendente">Números, bônus e quantidades pendentes de aprovação do mestre.</p>
+      </div>
+    </details>
+  </article>
 
-  <p class="corpo">A droga da doutora estava na enfermaria da base, e ele passava por lá mais do que precisava. Não era pelos doentes. Era pra ouvir. Quando o remédio entrava, as células do paciente recebiam a ordem de se refazer numa velocidade que nenhum corpo foi feito pra suportar, e o homem na maca gritava como se o costurassem por dentro com agulha em brasa. As enfermeiras desviavam o olhar. Kairon abria o caderno e anotava o tempo entre um grito e outro.</p>
+  <article class="projeto est-andamento" id="projeto-02">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">02</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 02</span>
+          <span class="proj-estado">Em andamento</span>
+        </span>
+        <h3 class="proj-nome">Ruína</h3>
+        <span class="proj-pe">
+          <span class="carimbo">Pendente de aprovação do mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Experimento do Kairon, em andamento</p>
+        <p class="corpo">Os outros viam um remédio. Kairon viu uma ferramenta.</p>
+        <p class="corpo">A droga da doutora estava na enfermaria da base, e ele passava por lá mais do que precisava. Não era pelos doentes. Era pra ouvir. Quando o remédio entrava, as células do paciente recebiam a ordem de se refazer numa velocidade que nenhum corpo foi feito pra suportar, e o homem na maca gritava como se o costurassem por dentro com agulha em brasa. As enfermeiras desviavam o olhar. Kairon abria o caderno e anotava o tempo entre um grito e outro.</p>
+        <p class="corpo">Todos ali queriam que a dor parasse. Ele queria saber por que ela existia. E quanto mais perguntava, mais uma ideia se fechava na cabeça dele, limpa e fria: a fórmula não curava ninguém. Ela só empurrava a vida da célula pra frente, mais rápido do que a célula aguentava. A cura era um efeito colateral de uma força que ele podia apontar pro outro lado.</p>
+        <p class="corpo">O arsênio já fazia metade do trabalho. Ele não rasga nem queima por fora. Entra quieto e apaga a energia da célula por dentro. Agora imagine essa célula, sem fôlego, recebendo a ordem de se reconstruir sem parar. Kairon imaginou, e riu sozinho na bancada, às três da manhã, com a mão tremendo de empolgação. Não lembrava da última vez que tinha comido.</p>
+        <p class="corpo">Ele sabia o que aquilo era. Conhecimento era a única coisa que ele não conseguia largar. Projeto, projeto, projeto. Cada resposta abria duas perguntas, e ele precisava da próxima como outros homens precisam da próxima dose. Se alguém dissesse que ele estava viciado, concordaria sem vergonha nenhuma.</p>
+        <p class="corpo">O resultado, no papel dele, é uma morte que começa pequena. A pele em volta do corte fica cinza e cede. O corpo enfraquece, o osso perde a firmeza, e por fim a medula, onde o sangue nasce, para de responder. Cada célula que cai solta o próprio veneno sobre as vizinhas. Não precisa de segunda dose. A ruína anda sozinha.</p>
+        <p class="corpo">Ele tentou levar aquilo pro ar, um gás pras trincheiras. No ar, o composto se desmanchava antes de chegar a alguém, e Kairon passou duas noites sem falar com ninguém, furioso com um problema que se recusava a obedecer. Foi quando olhou pras garras das manoplas e entendeu que a resposta sempre esteve ali: levar o veneno direto à carne, sem dar tempo dele se perder.</p>
+        <p class="corpo">Alguém poderia perguntar quantos teriam que cair até ele aprender o que queria. Kairon nunca fez essa conta. Não por descuido. O número simplesmente não mudava a resposta.</p>
+        <p class="corpo">Restam três coisas que ele ainda anota: o arsênio corrói os tubos, então o composto não pode esperar guardado por muito tempo; o efeito completo leva dias; e a velocidade que ele quer só vem com um catalisador arcano que ele ainda não domina. Antídoto não existe, e não é a prioridade dele.</p>
+        <p class="corpo">Na última página do caderno, com a letra apertada de quem não dorme, tem uma única frase sublinhada duas vezes: falta pouco.</p>
+        <p class="pendente">Efeitos e tempos pendentes de aprovação do mestre</p>
+      </div>
+    </details>
+  </article>
 
-  <p class="corpo">Todos ali queriam que a dor parasse. Ele queria saber por que ela existia. E quanto mais perguntava, mais uma ideia se fechava na cabeça dele, limpa e fria: a fórmula não curava ninguém. Ela só empurrava a vida da célula pra frente, mais rápido do que a célula aguentava. A cura era um efeito colateral de uma força que ele podia apontar pro outro lado.</p>
-
-  <p class="corpo">O arsênio já fazia metade do trabalho. Ele não rasga nem queima por fora. Entra quieto e apaga a energia da célula por dentro. Agora imagine essa célula, sem fôlego, recebendo a ordem de se reconstruir sem parar. Kairon imaginou, e riu sozinho na bancada, às três da manhã, com a mão tremendo de empolgação. Não lembrava da última vez que tinha comido.</p>
-
-  <p class="corpo">Ele sabia o que aquilo era. Conhecimento era a única coisa que ele não conseguia largar. Projeto, projeto, projeto. Cada resposta abria duas perguntas, e ele precisava da próxima como outros homens precisam da próxima dose. Se alguém dissesse que ele estava viciado, concordaria sem vergonha nenhuma.</p>
-
-  <p class="corpo">O resultado, no papel dele, é uma morte que começa pequena. A pele em volta do corte fica cinza e cede. O corpo enfraquece, o osso perde a firmeza, e por fim a medula, onde o sangue nasce, para de responder. Cada célula que cai solta o próprio veneno sobre as vizinhas. Não precisa de segunda dose. A ruína anda sozinha.</p>
-
-  <p class="corpo">Ele tentou levar aquilo pro ar, um gás pras trincheiras. No ar, o composto se desmanchava antes de chegar a alguém, e Kairon passou duas noites sem falar com ninguém, furioso com um problema que se recusava a obedecer. Foi quando olhou pras garras das manoplas e entendeu que a resposta sempre esteve ali: levar o veneno direto à carne, sem dar tempo dele se perder.</p>
-
-  <p class="corpo">Alguém poderia perguntar quantos teriam que cair até ele aprender o que queria. Kairon nunca fez essa conta. Não por descuido. O número simplesmente não mudava a resposta.</p>
-
-  <p class="corpo">Restam três coisas que ele ainda anota: o arsênio corrói os tubos, então o composto não pode esperar guardado por muito tempo; o efeito completo leva dias; e a velocidade que ele quer só vem com um catalisador arcano que ele ainda não domina. Antídoto não existe, e não é a prioridade dele.</p>
-
-  <p class="corpo">Na última página do caderno, com a letra apertada de quem não dorme, tem uma única frase sublinhada duas vezes: falta pouco.</p>
-
-  <p class="pendente">Efeitos e tempos pendentes de aprovação do mestre</p>
+  <article class="projeto est-uso" id="projeto-03">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">03</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 03</span>
+          <span class="proj-estado">Em uso no protótipo</span>
+        </span>
+        <h3 class="proj-nome">Veneno de luta</h3>
+        <span class="proj-sub">nome a definir</span>
+        <span class="proj-pe">
+          <span class="carimbo">Pendente de aprovação do mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="corpo">O veneno que já corre pelos tubos do protótipo. Deixa o corpo da vítima dormente e derruba os atributos físicos dela. Efeito, duração e origem pendentes de aprovação do mestre.</p>
+      </div>
+    </details>
+  </article>
 </section>
 
 </main>
@@ -389,6 +471,6 @@
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>

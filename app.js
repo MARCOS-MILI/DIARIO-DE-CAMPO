@@ -38,17 +38,40 @@
     mostrar('ficha');
   });
 
+  // abre um cartão de projeto e leva a tela até ele
+  function abrirCartao(id) {
+    var cartao = document.getElementById(id);
+    if (!cartao) return;
+    var det = cartao.querySelector('details');
+    if (det) det.open = true;
+    cartao.scrollIntoView({ block: 'start' });
+  }
+
+  // aceita o nome de uma aba, o nome antigo (#experimentos) ou um cartão (#projeto-02)
+  function entrar(hash, inicial) {
+    var h = hash.replace('#', '');
+    if (h === 'experimentos') h = 'projetos';
+    if (/^projeto-\d+$/.test(h) && document.getElementById(h)) {
+      mostrar('projetos', { inicial: true });
+      abrirCartao(h);
+      return;
+    }
+    mostrar(h, { inicial: inicial });
+  }
+
   window.addEventListener('hashchange', function () {
-    mostrar(location.hash.replace('#', ''), { inicial: true });
+    entrar(location.hash, true);
   });
 
-  mostrar(location.hash.replace('#', ''), { inicial: true });
+  entrar(location.hash, true);
 
-  // links internos que levam a outra aba (ex.: "Abrir a bolsa")
+  // links internos que levam a outra aba (ex.: "Abrir a bolsa") ou a um cartão (data-abrir)
   Array.prototype.slice.call(document.querySelectorAll('a.ir')).forEach(function (a) {
     a.addEventListener('click', function (ev) {
       ev.preventDefault();
       mostrar(a.getAttribute('data-aba'));
+      var alvo = a.getAttribute('data-abrir');
+      if (alvo) abrirCartao(alvo);
     });
   });
 })();
