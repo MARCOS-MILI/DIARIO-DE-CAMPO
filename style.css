@@ -1177,6 +1177,31 @@ h2 {
 .proj-corpo .pontos { margin: 0 0 1rem; }
 .proj-corpo .pendente { margin: 1.1rem 0 0; }
 
+.carimbo.aprovado {
+  border-color: var(--veneno-esc);
+  outline-color: var(--veneno-esc);
+  color: var(--veneno-esc);
+}
+
+.planta { margin: 1.4rem 0 0; }
+.planta a { display: block; }
+
+.planta img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1.5px solid var(--linha);
+  border-radius: 4px;
+  background: #f3e9d2;
+}
+
+.planta figcaption {
+  margin-top: 0.45rem;
+  color: var(--suave);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
 .proj-ficha {
   margin: 0 0 1.1rem;
   padding: 0.6rem 0.85rem;
