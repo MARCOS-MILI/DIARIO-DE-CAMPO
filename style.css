@@ -1177,6 +1177,8 @@ h2 {
 .proj-corpo .pontos { margin: 0 0 1rem; }
 .proj-corpo .pendente { margin: 1.1rem 0 0; }
 
+.proj-corpo a.ir { color: var(--cobalto); text-underline-offset: 3px; }
+
 .carimbo.aprovado {
   border-color: var(--veneno-esc);
   outline-color: var(--veneno-esc);
