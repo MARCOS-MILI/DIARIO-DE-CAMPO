@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=27">
+<link rel="stylesheet" href="style.css?v=29">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
@@ -113,125 +113,14 @@
         <div class="stat" data-chave="sede" data-nome="Sede" data-atual="9" data-max="10" data-cor="sede"><p class="stat-sem-js">Sede: <b>9</b> de 10</p></div>
       </div>
 
-      <div class="busca" role="search">
-        <label class="busca-rot" for="busca-item">Procurar item</label>
-        <div class="busca-campo">
-          <input id="busca-item" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="veneno, câmera, máscara...">
-          <button type="button" class="busca-limpar" id="busca-limpar" aria-label="Limpar a busca" hidden>&times;</button>
-        </div>
-        <p class="busca-info" id="busca-info" aria-live="polite" hidden></p>
-      </div>
+      <h2>Perícias</h2>
+      <dl class="classes pericias">
+        <div><dt>Criação</dt><dd>+2<small>Perícia que só cientistas têm.</small></dd></div>
+      </dl>
 
-      <h2>Equipamento inicial</h2>
-      <ul class="itens">
-        <li>
-          <strong>Manoplas de garras injetoras</strong>
-          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. A versão hidráulica (Giftklaue II) está pronta e aprovada: pesa 12 kg e ativar custa 1 ação e 5 de energia. <a class="ir" href="#projeto-01" data-aba="projetos" data-abrir="projeto-01">Ver o Projeto 01</a> · <a class="ir" href="#projeto-02" data-aba="projetos" data-abrir="projeto-02">Ver a Ruína (Projeto 02)</a> · <a class="ir" href="#projeto-08" data-aba="projetos" data-abrir="projeto-08">Ver a hidráulica (Projeto 08)</a> · <a class="ir" href="#projeto-12" data-aba="projetos" data-abrir="projeto-12">Ver a Giftklaue III (Projeto 12)</a></span>
-        </li>
-        <li class="com-simbolo">
-          <strong>Brasão da família Flagon</strong>
-          <span>A única prova da identidade verdadeira dele.</span>
-          <img class="simbolo" src="img/flagon.webp" width="730" height="526"
-               alt="Símbolo da família Flagon: duas asas pretas abertas em volta de uma coroa de três pontas sobre um losango.">
-        </li>
-        <li>
-          <strong>Caderno criptografado</strong>
-          <span>Onde ele anota as ideias e descobertas de cientista.</span>
-        </li>
-      </ul>
+      <h2>Itens</h2>
+      <p class="nota">Os itens do Kairon ficam só na aba Bolsa. <a class="ir" href="#bolsa" data-aba="bolsa">Abrir a bolsa</a></p>
 
-      <h2>Também carrega</h2>
-      <ul class="itens leve">
-        <li><strong>Rádio portátil de campo</strong></li>
-        <li>
-          <strong>Caderno de crônicas</strong>
-          <span>Com caneta-tinteiro e tinta.</span>
-        </li>
-        <li><strong>Câmera</strong></li>
-        <li>
-          <strong>Fotografias do cassino</strong>
-          <span>O agente ruivo, a região em volta e a polícia com a segurança do lugar.</span>
-        </li>
-        <li>
-          <strong>Revólver</strong>
-          <span>Dá 1d6 de dano. Tem 10 balas. Arma ornamentada, com cano azulado gravado, detalhes dourados e cabo claro.</span>
-        </li>
-        <li>
-          <strong>Carteira do homem que tentou matar o grupo</strong>
-          <span>Dentro tem só uma foto da avó dele e uma foto de um mini lobo com roupa de exército.</span>
-        </li>
-        <li>
-          <strong>Jaqueta de investigador</strong>
-          <span>Também era do homem que tentou matar o grupo.</span>
-        </li>
-        <li>
-          <strong>Bombas de fumaça (1)</strong>
-          <span>Pra despistar e fugir. Eram 3, ele gastou 2. <a class="ir" href="#projeto-07" data-aba="projetos" data-abrir="projeto-07">Ver o Projeto 07</a></span>
-        </li>
-        <li>
-          <strong>Frascos de veneno (3)</strong>
-          <span>Reserva pras manoplas. O efeito fica em aberto com o mestre.</span>
-        </li>
-        <li>
-          <strong>Frasco de veneno de cascavel (1)</strong>
-          <span>Conseguido na sessão. Vidro grosso, rolha de cortiça e selo de cera. O efeito fica em aberto com o mestre. <a class="planta-link" href="img/planta-10-frasco-veneno-cascavel.webp" target="_blank" rel="noopener">Ver a planta do frasco</a></span>
-        </li>
-        <li>
-          <strong>Protótipo de veneno de arsênio</strong>
-          <span>Em desenvolvimento. Os detalhes ficam pra definir.</span>
-        </li>
-        <li>
-          <strong>Máscara de gás</strong>
-          <span>Pra trabalhar com toxinas e fumaça sem se envenenar.</span>
-        </li>
-        <li>
-          <strong>Kit de laboratório de campo</strong>
-          <span>Tubos de ensaio, pipetas e luvas de proteção, pra misturar e testar toxinas longe da base.</span>
-        </li>
-        <li>
-          <strong>Antídoto básico</strong>
-          <span>Pra quando uma toxina dá errado.</span>
-        </li>
-        <li>
-          <strong>Água</strong>
-          <span>No frasco em forma de gato.</span>
-        </li>
-        <li>
-          <strong>Documentos do Marck</strong>
-          <span>A identidade de órfão que ele usa entre os Aliados.</span>
-        </li>
-        <li class="com-imagem">
-          <strong>Binóculos</strong>
-          <span>De latão envelhecido e couro vermelho, com engrenagens, uma mola, um parafuso borboleta no meio e alça de couro.</span>
-          <a class="foto-item" href="img/item-binoculos.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Binóculos"><img src="img/item-binoculos-mini.webp" width="360" height="360" loading="lazy" alt="Binóculos de latão envelhecido e couro vermelho, com engrenagens e alça de couro, sobre fundo preto."></a>
-        </li>
-        <li class="com-imagem">
-          <strong>Óculos de couro e latão</strong>
-          <span>Couro marrom com aros de latão, lupas articuladas na frente e uma válvula de vidro na lateral. As lentes são capazes de reconhecer fontes de energia.</span>
-          <a class="foto-item" href="img/item-oculos.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Óculos de couro e latão"><img src="img/item-oculos-mini.webp" width="360" height="360" loading="lazy" alt="Óculos de couro marrom e latão, com uma lupa articulada na frente e uma válvula de vidro na lateral."></a>
-        </li>
-        <li class="com-imagem">
-          <strong>Máscara lisa</strong>
-          <span>Clara, em forma de ovo, com dois cortes escuros no lugar dos olhos e um brilho dourado no topo.</span>
-          <a class="foto-item" href="img/item-mascara.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Máscara lisa"><img src="img/item-mascara-mini.webp" width="360" height="360" loading="lazy" alt="Máscara clara em forma de ovo, com dois cortes escuros no lugar dos olhos e um brilho dourado no topo."></a>
-        </li>
-        <li class="com-imagem">
-          <strong>Câmera de duas lentes (Rolleicord)</strong>
-          <span>Preta, com detalhes dourados em padrão xadrez. Uma lente em cima, pro visor, e outra embaixo, pra foto.</span>
-          <a class="foto-item" href="img/item-camera-rolleicord.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Câmera de duas lentes (Rolleicord)"><img src="img/item-camera-rolleicord-mini.webp" width="360" height="360" loading="lazy" alt="Câmera de duas lentes Rolleicord, preta com detalhes dourados em padrão xadrez."></a>
-        </li>
-        <li class="com-imagem">
-          <strong>Conjunto de sutura</strong>
-          <span>Bolsa de couro escuro com fecho. Dentro, uma navalha, tesouras, pinças e ganchos finos, cada um no seu lugar.</span>
-          <a class="foto-item" href="img/item-conjunto-de-sutura.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Conjunto de sutura"><img src="img/item-conjunto-de-sutura-mini.webp" width="360" height="360" loading="lazy" alt="Desenho de um estojo de couro aberto, com navalha, tesouras, pinças e ganchos finos."></a>
-        </li>
-        <li>
-          <strong>Dólares</strong>
-          <span>O dinheiro do mercado negro. Saldo na bolsa: <b data-saldo>375 dólares</b>. A quantia ainda fica pra combinar com o mestre. <a class="ir" href="#bolsa" data-aba="bolsa">Abrir a bolsa</a></span>
-        </li>
-      </ul>
-
-      <p class="busca-vazio" id="busca-vazio" hidden>Nenhum item com esse nome. Tenta outra palavra.</p>
 
       <h2>Detalhes do visual</h2>
       <p class="corpo">Só pra compor o personagem, sem peso na ficha: um livro grande e gasto, um frasco em forma de gato com água, um cabo dourado ornamentado preso à cintura e um brinco dourado.</p>
@@ -414,12 +303,99 @@
   <p class="bolsa-vazio" id="bolsa-vazio" hidden>Nenhum lançamento ainda.</p>
   <button type="button" class="bolsa-zerar" id="bolsa-zerar">Voltar ao saldo inicial</button>
 
-  <h2>Itens comprados</h2>
-  <p class="nota">Os itens que o Kairon comprou. Toque na foto pra ver maior.</p>
-  <ul class="itens bolsa-itens">
+  <h2>Itens</h2>
+  <p class="nota">Tudo o que o Kairon carrega. Toque na foto pra ver maior.</p>
+  <div class="busca" role="search">
+    <label class="busca-rot" for="busca-item">Procurar item</label>
+    <div class="busca-campo">
+      <input id="busca-item" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="veneno, câmera, máscara...">
+      <button type="button" class="busca-limpar" id="busca-limpar" aria-label="Limpar a busca" hidden>&times;</button>
+    </div>
+    <p class="busca-info" id="busca-info" aria-live="polite" hidden></p>
+  </div>
+
+  <h3 class="sub-itens">Equipamento inicial</h3>
+  <ul class="itens">
+    <li>
+      <strong>Manoplas de garras injetoras</strong>
+      <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. A versão hidráulica (Giftklaue II) está pronta e aprovada: pesa 12 kg e ativar custa 1 ação e 5 de energia. <a class="ir" href="#projeto-01" data-aba="projetos" data-abrir="projeto-01">Ver o Projeto 01</a> · <a class="ir" href="#projeto-02" data-aba="projetos" data-abrir="projeto-02">Ver a Ruína (Projeto 02)</a> · <a class="ir" href="#projeto-08" data-aba="projetos" data-abrir="projeto-08">Ver a hidráulica (Projeto 08)</a> · <a class="ir" href="#projeto-12" data-aba="projetos" data-abrir="projeto-12">Ver a Giftklaue III (Projeto 12)</a></span>
+    </li>
+    <li class="com-simbolo">
+      <strong>Brasão da família Flagon</strong>
+      <span>A única prova da identidade verdadeira dele.</span>
+      <img class="simbolo" src="img/flagon.webp" width="730" height="526"
+           alt="Símbolo da família Flagon: duas asas pretas abertas em volta de uma coroa de três pontas sobre um losango.">
+    </li>
+    <li>
+      <strong>Caderno criptografado</strong>
+      <span>Onde ele anota as ideias e descobertas de cientista.</span>
+    </li>
+  </ul>
+
+  <h3 class="sub-itens">Também carrega</h3>
+  <ul class="itens leve">
+    <li><strong>Rádio portátil de campo</strong></li>
+    <li>
+      <strong>Caderno de crônicas</strong>
+      <span>Com caneta-tinteiro e tinta.</span>
+    </li>
+    <li><strong>Câmera</strong></li>
+    <li>
+      <strong>Fotografias do cassino</strong>
+      <span>O agente ruivo, a região em volta e a polícia com a segurança do lugar.</span>
+    </li>
+    <li>
+      <strong>Revólver</strong>
+      <span>Dá 1d6 de dano. Tem 10 balas. Arma ornamentada, com cano azulado gravado, detalhes dourados e cabo claro.</span>
+    </li>
+    <li>
+      <strong>Carteira do homem que tentou matar o grupo</strong>
+      <span>Dentro tem só uma foto da avó dele e uma foto de um mini lobo com roupa de exército.</span>
+    </li>
+    <li>
+      <strong>Jaqueta de investigador</strong>
+      <span>Também era do homem que tentou matar o grupo.</span>
+    </li>
+    <li>
+      <strong>Bombas de fumaça (1)</strong>
+      <span>Pra despistar e fugir. Eram 3, ele gastou 2. <a class="ir" href="#projeto-07" data-aba="projetos" data-abrir="projeto-07">Ver o Projeto 07</a></span>
+    </li>
+    <li>
+      <strong>Frascos de veneno (3)</strong>
+      <span>Reserva pras manoplas. O efeito fica em aberto com o mestre.</span>
+    </li>
+    <li>
+      <strong>Frasco de veneno de cascavel (1)</strong>
+      <span>Conseguido na sessão. Vidro grosso, rolha de cortiça e selo de cera. O efeito fica em aberto com o mestre. <a class="planta-link" href="img/planta-10-frasco-veneno-cascavel.webp" target="_blank" rel="noopener">Ver a planta do frasco</a></span>
+    </li>
+    <li>
+      <strong>Protótipo de veneno de arsênio</strong>
+      <span>Em desenvolvimento. Os detalhes ficam pra definir.</span>
+    </li>
+    <li>
+      <strong>Máscara de gás</strong>
+      <span>Pra trabalhar com toxinas e fumaça sem se envenenar.</span>
+    </li>
+    <li>
+      <strong>Kit de laboratório de campo</strong>
+      <span>Tubos de ensaio, pipetas e luvas de proteção, pra misturar e testar toxinas longe da base.</span>
+    </li>
+    <li>
+      <strong>Antídoto básico</strong>
+      <span>Pra quando uma toxina dá errado.</span>
+    </li>
+    <li>
+      <strong>Água</strong>
+      <span>No frasco em forma de gato.</span>
+    </li>
+    <li>
+      <strong>Documentos do Marck</strong>
+      <span>A identidade de órfão que ele usa entre os Aliados.</span>
+    </li>
     <li class="com-imagem">
       <strong>Binóculos</strong>
       <span>De latão envelhecido e couro vermelho, com engrenagens, uma mola, um parafuso borboleta no meio e alça de couro.</span>
+      <span class="pago">Não custou nada.</span>
       <a class="foto-item" href="img/item-binoculos.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Binóculos"><img src="img/item-binoculos-mini.webp" width="360" height="360" loading="lazy" alt="Binóculos de latão envelhecido e couro vermelho, com engrenagens e alça de couro, sobre fundo preto."></a>
     </li>
     <li class="com-imagem">
@@ -431,11 +407,13 @@
     <li class="com-imagem">
       <strong>Máscara lisa</strong>
       <span>Clara, em forma de ovo, com dois cortes escuros no lugar dos olhos e um brilho dourado no topo.</span>
+      <span class="pago">Não custou nada.</span>
       <a class="foto-item" href="img/item-mascara.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Máscara lisa"><img src="img/item-mascara-mini.webp" width="360" height="360" loading="lazy" alt="Máscara clara em forma de ovo, com dois cortes escuros no lugar dos olhos e um brilho dourado no topo."></a>
     </li>
     <li class="com-imagem">
       <strong>Câmera de duas lentes (Rolleicord)</strong>
       <span>Preta, com detalhes dourados em padrão xadrez. Uma lente em cima, pro visor, e outra embaixo, pra foto.</span>
+      <span class="pago">Não custou nada.</span>
       <a class="foto-item" href="img/item-camera-rolleicord.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Câmera de duas lentes (Rolleicord)"><img src="img/item-camera-rolleicord-mini.webp" width="360" height="360" loading="lazy" alt="Câmera de duas lentes Rolleicord, preta com detalhes dourados em padrão xadrez."></a>
     </li>
     <li class="com-imagem">
@@ -445,6 +423,8 @@
       <a class="foto-item" href="img/item-conjunto-de-sutura.webp" target="_blank" rel="noopener" aria-label="Abrir a foto de Conjunto de sutura"><img src="img/item-conjunto-de-sutura-mini.webp" width="360" height="360" loading="lazy" alt="Desenho de um estojo de couro aberto, com navalha, tesouras, pinças e ganchos finos."></a>
     </li>
   </ul>
+
+  <p class="busca-vazio" id="busca-vazio" hidden>Nenhum item com esse nome. Tenta outra palavra.</p>
 </section>
 
 <!-- ============ PROJETOS ============ -->
@@ -1018,6 +998,6 @@
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=27"></script>
+<script src="app.js?v=29"></script>
 </body>
 </html>

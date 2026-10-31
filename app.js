@@ -897,7 +897,7 @@
   var limpar = document.getElementById('busca-limpar');
   var info = document.getElementById('busca-info');
   var vazio = document.getElementById('busca-vazio');
-  var painel = document.getElementById('painel-ficha');
+  var painel = document.getElementById('painel-bolsa');
   if (!campo || !painel) return;
 
   function norm(s) {
@@ -927,7 +927,7 @@
       var titulo = ul.previousElementSibling;
       var esconde = visiveis === 0;
       ul.classList.toggle('busca-oculto', esconde);
-      if (titulo && titulo.tagName === 'H2') titulo.classList.toggle('busca-oculto', esconde);
+      if (titulo && (titulo.tagName === 'H2' || titulo.tagName === 'H3')) titulo.classList.toggle('busca-oculto', esconde);
     });
 
     limpar.hidden = !campo.value;

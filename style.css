@@ -192,6 +192,14 @@ h2 {
   .classes > div { grid-template-columns: 11rem 1fr; align-items: baseline; gap: 1rem; }
 }
 
+.pericias dd { font-size: 1.6rem; }
+.pericias dd small {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--suave);
+  font: 400 1rem/1.35 var(--texto);
+}
+
 /* Tubos de veneno: os atributos */
 
 .tubos {
@@ -727,6 +735,12 @@ h2 {
 }
 
 .bolsa-itens { margin-bottom: 0.6rem; }
+.sub-itens {
+  margin: 1.8rem 0 0.4rem;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+.nota a.ir { color: var(--cobalto); text-underline-offset: 3px; }
 
 /* Busca de itens */
 
