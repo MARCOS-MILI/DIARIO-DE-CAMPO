@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=24">
+<link rel="stylesheet" href="style.css?v=25">
 <noscript><style>.painel[hidden]{display:block}</style></noscript>
 </head>
 <body>
@@ -126,7 +126,7 @@
       <ul class="itens">
         <li>
           <strong>Manoplas de garras injetoras</strong>
-          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. A versão hidráulica (Giftklaue II) está pronta e aprovada: pesa 12 kg e ativar custa 1 ação e 5 de energia. <a class="ir" href="#projeto-01" data-aba="projetos" data-abrir="projeto-01">Ver o Projeto 01</a> · <a class="ir" href="#projeto-02" data-aba="projetos" data-abrir="projeto-02">Ver a Ruína (Projeto 02)</a> · <a class="ir" href="#projeto-08" data-aba="projetos" data-abrir="projeto-08">Ver a hidráulica (Projeto 08)</a></span>
+          <span>Protótipo. Duas luvas de garras com tubos de veneno no antebraço. Cada ataque injeta o veneno, como a presa de uma cobra. A versão hidráulica (Giftklaue II) está pronta e aprovada: pesa 12 kg e ativar custa 1 ação e 5 de energia. <a class="ir" href="#projeto-01" data-aba="projetos" data-abrir="projeto-01">Ver o Projeto 01</a> · <a class="ir" href="#projeto-02" data-aba="projetos" data-abrir="projeto-02">Ver a Ruína (Projeto 02)</a> · <a class="ir" href="#projeto-08" data-aba="projetos" data-abrir="projeto-08">Ver a hidráulica (Projeto 08)</a> · <a class="ir" href="#projeto-12" data-aba="projetos" data-abrir="projeto-12">Ver a Giftklaue III (Projeto 12)</a></span>
         </li>
         <li class="com-simbolo">
           <strong>Brasão da família Flagon</strong>
@@ -415,6 +415,30 @@
   <h2>Projetos do Kairon</h2>
   <p class="nota">Invenções e experimentos dele. Toque num cartão pra ler o projeto inteiro.</p>
 
+  <div class="proj-ferramentas">
+    <p class="proj-resumo" id="proj-resumo"></p>
+    <div class="busca" role="search">
+      <label class="busca-rot" for="busca-proj">Achar um projeto</label>
+      <div class="busca-campo">
+        <input id="busca-proj" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="bota, veneno, rádio...">
+        <button type="button" class="busca-limpar" id="busca-proj-limpar" aria-label="Limpar a busca" hidden>&times;</button>
+      </div>
+      <p class="busca-info" id="busca-proj-info" aria-live="polite" hidden></p>
+    </div>
+    <div class="proj-filtros" id="proj-filtros" role="group" aria-label="Filtrar por situação"></div>
+    <button type="button" class="proj-recolher" id="proj-recolher" hidden>Fechar os cartões abertos</button>
+  </div>
+
+  <!-- o sumário é montado pelo app.js a partir dos cartões abaixo; projeto novo entra dentro de um grupo -->
+  <nav class="proj-sumario" id="proj-sumario" aria-label="Sumário dos projetos"></nav>
+  <p class="busca-vazio" id="proj-vazio" hidden>Nenhum projeto com esse filtro.</p>
+
+  <section class="proj-grupo" id="grupo-giftklaue">
+    <header class="grupo-cab">
+      <h3 class="grupo-titulo">Giftklaue</h3>
+      <p class="grupo-desc">A luva de garras e as versões dela.</p>
+    </header>
+
   <article class="projeto est-prototipo" id="projeto-01">
     <details>
       <summary>
@@ -423,7 +447,7 @@
           <span class="proj-n">Projeto 01</span>
           <span class="proj-estado">Protótipo</span>
         </span>
-        <h3 class="proj-nome">Giftklaue</h3>
+        <h4 class="proj-nome">Giftklaue</h4>
         <span class="proj-sub">Garra Venenosa</span>
         <span class="proj-data">Criado em <time datetime="2026-10-23">23/10/2026</time></span>
         <span class="proj-pe">
@@ -462,218 +486,6 @@
     </details>
   </article>
 
-  <article class="projeto est-andamento" id="projeto-02">
-    <details>
-      <summary>
-        <span class="proj-marca" aria-hidden="true">02</span>
-        <span class="proj-topo">
-          <span class="proj-n">Projeto 02</span>
-          <span class="proj-estado">Em andamento</span>
-        </span>
-        <h3 class="proj-nome">Ruína</h3>
-        <span class="proj-data">Criado em <time datetime="2026-10-20">20/10/2026</time></span>
-        <span class="proj-pe">
-          <span class="carimbo aprovado">Aprovado pelo mestre</span>
-          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
-        </span>
-      </summary>
-      <div class="proj-corpo">
-        <p class="nota">Experimento do Kairon, em andamento</p>
-        <p class="corpo">Os outros viam um remédio. Kairon viu uma ferramenta.</p>
-        <p class="corpo">A droga da doutora estava na enfermaria da base, e ele passava por lá mais do que precisava. Não era pelos doentes. Era pra ouvir. Quando o remédio entrava, as células do paciente recebiam a ordem de se refazer numa velocidade que nenhum corpo foi feito pra suportar, e o homem na maca gritava como se o costurassem por dentro com agulha em brasa. As enfermeiras desviavam o olhar. Kairon abria o caderno e anotava o tempo entre um grito e outro.</p>
-        <p class="corpo">Todos ali queriam que a dor parasse. Ele queria saber por que ela existia. E quanto mais perguntava, mais uma ideia se fechava na cabeça dele, limpa e fria: a fórmula não curava ninguém. Ela só empurrava a vida da célula pra frente, mais rápido do que a célula aguentava. A cura era um efeito colateral de uma força que ele podia apontar pro outro lado.</p>
-        <p class="corpo">O arsênio já fazia metade do trabalho. Ele não rasga nem queima por fora. Entra quieto e apaga a energia da célula por dentro. Agora imagine essa célula, sem fôlego, recebendo a ordem de se reconstruir sem parar. Kairon imaginou, e riu sozinho na bancada, às três da manhã, com a mão tremendo de empolgação. Não lembrava da última vez que tinha comido.</p>
-        <p class="corpo">Ele sabia o que aquilo era. Conhecimento era a única coisa que ele não conseguia largar. Projeto, projeto, projeto. Cada resposta abria duas perguntas, e ele precisava da próxima como outros homens precisam da próxima dose. Se alguém dissesse que ele estava viciado, concordaria sem vergonha nenhuma.</p>
-        <p class="corpo">O resultado, no papel dele, é uma morte que começa pequena. A pele em volta do corte fica cinza e cede. O corpo enfraquece, o osso perde a firmeza, e por fim a medula, onde o sangue nasce, para de responder. Cada célula que cai solta o próprio veneno sobre as vizinhas. Não precisa de segunda dose. A ruína anda sozinha.</p>
-        <p class="corpo">Ele tentou levar aquilo pro ar, um gás pras trincheiras. No ar, o composto se desmanchava antes de chegar a alguém, e Kairon passou duas noites sem falar com ninguém, furioso com um problema que se recusava a obedecer. Foi quando olhou pras garras das manoplas e entendeu que a resposta sempre esteve ali: levar o veneno direto à carne, sem dar tempo dele se perder.</p>
-        <p class="corpo">Alguém poderia perguntar quantos teriam que cair até ele aprender o que queria. Kairon nunca fez essa conta. Não por descuido. O número simplesmente não mudava a resposta.</p>
-        <p class="corpo">Restam três coisas que ele ainda anota: o arsênio corrói os tubos, então o composto não pode esperar guardado por muito tempo; o efeito completo leva dias; e a velocidade que ele quer só vem com um catalisador arcano que ele ainda não domina. Antídoto não existe, e não é a prioridade dele.</p>
-        <p class="corpo">Na última página do caderno, com a letra apertada de quem não dorme, tem uma única frase sublinhada duas vezes: falta pouco.</p>
-        <figure class="planta">
-          <a href="img/planta-02-ruina.webp" target="_blank" rel="noopener"><img src="img/planta-02-ruina.webp" width="1520" height="2524" loading="lazy" alt="Planta desenhada do Projeto 02, Ruína"></a>
-          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="pendente">Efeitos e tempos pendentes de aprovação do mestre</p>
-      </div>
-    </details>
-  </article>
-
-  <article class="projeto est-uso" id="projeto-03">
-    <details>
-      <summary>
-        <span class="proj-marca" aria-hidden="true">03</span>
-        <span class="proj-topo">
-          <span class="proj-n">Projeto 03</span>
-          <span class="proj-estado">Em uso no protótipo</span>
-        </span>
-        <h3 class="proj-nome">Veneno de luta</h3>
-        <span class="proj-sub">nome a definir</span>
-        <span class="proj-data">Criado em <time datetime="2026-10-23">23/10/2026</time></span>
-        <span class="proj-pe">
-          <span class="carimbo aprovado">Aprovado pelo mestre</span>
-          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
-        </span>
-      </summary>
-      <div class="proj-corpo">
-        <p class="corpo">O veneno que já corre pelos tubos do protótipo. Deixa o corpo da vítima dormente e derruba os atributos físicos dela. Efeito, duração e origem pendentes de aprovação do mestre.</p>
-        <figure class="planta">
-          <a href="img/planta-03-veneno-de-luta.webp" target="_blank" rel="noopener"><img src="img/planta-03-veneno-de-luta.webp" width="1520" height="2620" loading="lazy" alt="Planta desenhada do Projeto 03, Veneno de luta, com os materiais"></a>
-          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-      </div>
-    </details>
-  </article>
-
-  <article class="projeto est-uso" id="projeto-04">
-    <details>
-      <summary>
-        <span class="proj-marca" aria-hidden="true">04</span>
-        <span class="proj-topo">
-          <span class="proj-n">Projeto 04</span>
-          <span class="proj-estado">Em uso</span>
-        </span>
-        <h3 class="proj-nome">Rádio de frequências</h3>
-        <span class="proj-sub">nome a definir</span>
-        <span class="proj-data">Criado em <time datetime="2026-10-23">23/10/2026</time></span>
-        <span class="proj-pe">
-          <span class="carimbo aprovado">Aprovado pelo mestre</span>
-          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
-        </span>
-      </summary>
-      <div class="proj-corpo">
-        <p class="nota">Invenção do Kairon, em uso</p>
-        <p class="corpo">Kairon fez esse rádio com um objetivo: não ser percebido como espião. É a forma que ele tem de se comunicar com os outros.</p>
-        <p class="corpo">O rádio é único. Em vez de falar numa frequência só, ele usa diferentes frequências, e isso disfarça o sinal. Quem escuta não consegue dizer de onde a transmissão sai.</p>
-        <p class="corpo">Os Aliados sabem que existe uma mensagem sendo transmitida. Mas não conseguem acessá-la e não conseguem localizar de onde ela parte. O único ponto que dá pra achar é o que recebe, na Alemanha.</p>
-        <p class="corpo">É por esse rádio que Kairon fala com a Hydra, e é nele que ele filtra tudo. A Hydra recebe só o que ele escolhe mandar.</p>
-        <p class="corpo">Em aberto: quem recebe do outro lado, na Alemanha, e se os Aliados conseguiriam chegar até esse ponto.</p>
-        <figure class="planta">
-          <a href="img/planta-04-radio-de-frequencias.webp" target="_blank" rel="noopener"><img src="img/planta-04-radio-de-frequencias.webp" width="1520" height="1920" loading="lazy" alt="Planta desenhada do Projeto 04, Rádio de frequências"></a>
-          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="pendente">Alcance, dificuldade pra rastrear e quem recebe do outro lado pendentes de aprovação do mestre.</p>
-      </div>
-    </details>
-  </article>
-
-  <article class="projeto est-andamento" id="projeto-05">
-    <details>
-      <summary>
-        <span class="proj-marca" aria-hidden="true">05</span>
-        <span class="proj-topo">
-          <span class="proj-n">Projeto 05</span>
-          <span class="proj-estado">Em andamento</span>
-        </span>
-        <h3 class="proj-nome">Donnerstimme</h3>
-        <span class="proj-sub">Voz de Trovão</span>
-        <span class="proj-data">Criado em <time datetime="2026-10-24">24/10/2026</time></span>
-        <span class="proj-pe">
-          <span class="carimbo aprovado">Aprovado pelo mestre</span>
-          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
-        </span>
-      </summary>
-      <div class="proj-corpo">
-        <p class="nota">Invenção do Kairon, pro show na cidade</p>
-        <p class="corpo">A Donnerstimme é um sistema de som pra cidade inteira. O plano é um show, e naquela cidade todas as fontes de comunicação vão estar bloqueadas. A voz não pode depender de nada que o bloqueio alcance.</p>
-        <p class="corpo">O microfone é de cobre, mas não fala direto pros pratos. A voz primeiro é gravada num disco de cera, que gira a 78 voltas por minuto. Uma agulha corta a voz na cera e, cerca de 6 voltas depois, outra agulha lê o que acabou de ser gravado. O resultado é um atraso de uns 5 segundos entre quem fala e o som que sai pela cidade.</p>
-        <p class="corpo">A máquina tem dois lados. No lado frio ficam o microfone e a gravação, sem nenhuma pedra, porque a cera derrete perto delas. No lado quente ficam a agulha de leitura, o amplificador (com válvula e pedra de éter) e o transmissor de saltos, que pula entre frequências pro sinal não ficar parado num lugar só.</p>
-        <figure class="planta">
-          <a href="img/planta-05-donnerstimme.webp" target="_blank" rel="noopener"><img src="img/planta-05-donnerstimme.webp" width="1520" height="2592" loading="lazy" alt="Planta desenhada do Projeto 05, Donnerstimme: caminho do som e disco de cera"></a>
-          <figcaption>Caminho do som e disco de cera. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="rotulo">O sinal pela magnetita</p>
-        <p class="corpo">O sinal não vai por fio até a cidade. A magnetita mestre, com uma bobina de 5 voltas de fio de cobre, manda o sinal pelo ar, e cada prato de som tem uma magnetita irmã que escuta e repete. No caminho, o sinal pula entre diferentes correntes de rádio.</p>
-        <figure class="planta">
-          <a href="img/planta-05-magnetita.webp" target="_blank" rel="noopener"><img src="img/planta-05-magnetita.webp" width="1520" height="2592" loading="lazy" alt="Planta desenhada do Projeto 05, Donnerstimme: o sinal indo da magnetita mestre pras magnetitas irmãs dos pratos"></a>
-          <figcaption>O sinal da magnetita mestre pras irmãs dos pratos. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="rotulo">Os pratos de som</p>
-        <p class="corpo">Os pratos ficam espalhados pela cidade, longe do palco, pra a voz que sai deles não voltar pro microfone e virar ruído. A casca é de zinco (cobre no prato mestre) e a moldura é de madeira seca, presa com parafusos de latão. No foco fica uma lâmina de mica, que treme com o sinal e vira voz. Atrás do prato, a magnetita irmã com a bobina de cobre. Ferro e aço ficam longe da magnetita.</p>
-        <figure class="planta">
-          <a href="img/planta-05-pratos-de-som.webp" target="_blank" rel="noopener"><img src="img/planta-05-pratos-de-som.webp" width="1520" height="2664" loading="lazy" alt="Planta desenhada de um prato de som da Donnerstimme, visto de lado, com os materiais"></a>
-          <figcaption>Prato de som visto de lado, com os materiais. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="corpo">Os fios dessa máquina, e o problema de fazer tudo sem borracha, estão no <a class="ir" href="#projeto-06" data-aba="projetos" data-abrir="projeto-06">Projeto 06</a>.</p>
-        <p class="corpo">Em aberto: de onde vem a magnetita.</p>
-        <p class="pendente">Tamanho, quantidade de pratos, alcance e custo a definir com o mestre.</p>
-      </div>
-    </details>
-  </article>
-
-  <article class="projeto est-andamento" id="projeto-06">
-    <details>
-      <summary>
-        <span class="proj-marca" aria-hidden="true">06</span>
-        <span class="proj-topo">
-          <span class="proj-n">Projeto 06</span>
-          <span class="proj-estado">Em andamento</span>
-        </span>
-        <h3 class="proj-nome">Fiação</h3>
-        <span class="proj-sub">parte da Donnerstimme</span>
-        <span class="proj-data">Criado em <time datetime="2026-10-24">24/10/2026</time></span>
-        <span class="proj-pe">
-          <span class="carimbo aprovado">Aprovado pelo mestre</span>
-          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
-        </span>
-      </summary>
-      <div class="proj-corpo">
-        <p class="nota">Parte da Donnerstimme, em andamento</p>
-        <p class="corpo">Cada pedaço da Donnerstimme pede um fio diferente, e foi isso que travou o primeiro teste: Kairon tratou todo fio como se fosse igual.</p>
-        <p class="corpo">Na bobina mestre, que manda o sinal, vão poucas voltas de fio grosso. Ali passa força, e fio fino esquentaria e perderia a voz no caminho. Já na bobina de cada prato, que só escuta, vão muitas voltas de fio fino, bem juntinhas. Quanto mais voltas, mais a magnetita ouve.</p>
-        <p class="corpo">Da agulha de leitura até o amplificador o sinal é fraco, quase um sussurro, então vai fio médio, curto, com o fio de ida e o de volta afastados e presos. Do amplificador pro transmissor, e da bateria pros dois, só fio grosso. É onde a força corre.</p>
-        <p class="corpo">Fio de sinal nunca anda colado em fio de força, senão um contamina o outro. Toda emenda é soldada.</p>
-        <figure class="planta">
-          <a href="img/planta-06-fiacao.webp" target="_blank" rel="noopener"><img src="img/planta-06-fiacao.webp" width="1520" height="2550" loading="lazy" alt="Planta desenhada do Projeto 06, Fiação, com a espessura de cada fio"></a>
-          <figcaption>Caminho dos fios e a espessura de cada um. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="rotulo">O problema: sem borracha</p>
-        <p class="corpo curto"><em>Marck, no ferro-velho</em></p>
-        <p class="corpo">Não tinha borracha. Não tinha capa, nem seda, nem nada que servisse de pele para o cobre. Os fios ficaram nus, e fio nu não perdoa. Eles se enrolaram um no outro, encostaram, e a máquina morreu com um estalo seco e um cheiro de queimado.</p>
-        <p class="corpo">Marck ficou parado olhando a fumaça subir. Não xingou. Ele nunca xingava quando tinha ideia vindo. Passou a língua nos dentes e começou a revirar o ferro-velho com as duas mãos.</p>
-        <p class="corpo">"Se eu não posso cobrir o fio", disse, "então ninguém vai encostar nele. O ar vai ser a minha borracha."</p>
-        <p class="corpo">Achou isoladores velhos de telégrafo, daqueles de porcelana branca, rachados no canto mas inteiros no que importava. Pregou uma tábua de madeira seca na bancada, sem prego de ferro, e aparafusou os isoladores em fila. Os fios de ida e de volta passaram por eles, bem esticados e afastados, e entre os isoladores ele encaixou pequenos pentes de madeira para manter a distância sempre igual. Fio nenhum ia encostar em fio nenhum. Acabou o abraço entre eles.</p>
-        <p class="corpo">Depois veio a bobina mestre. Com o cobre grosso, que não cede nem se pedir, ele fez cinco voltas soltas no ar, uma hélice que se segurava sozinha. Dois pentes de madeira por baixo mantinham cada volta no seu lugar. No meio, a magnetita. Solda só nas pontas, duas gotas de estanho prendendo o cobre aos terminais. Entre as voltas, nenhuma solda. Só ar.</p>
-        <p class="corpo">A bobina do prato era a parte difícil. Fio fino, muitas voltas, e sem capa. Marck pegou um tubo de vidro do kit químico e, com uma lima triangular, abriu um sulco em espiral, devagar, com a respiração presa. Cada volta do fio ia dormir no seu próprio sulco, com uma crista de vidro entre ela e a vizinha. Uma camada só, num tubo comprido. Quando terminou, passou cera derretida por cima, para as voltas não saírem do lugar e a umidade não entrar. Prendeu as pontas com solda e soprou.</p>
-        <p class="corpo">Limpou as mãos na calça e olhou para a obra. Era feio, era improvisado e era dele.</p>
-        <p class="corpo">Ligou a bateria. E esperou o mestre dizer se funcionava.</p>
-        <figure class="planta">
-          <a href="img/planta-06b-fios-sem-borracha.webp" target="_blank" rel="noopener"><img src="img/planta-06b-fios-sem-borracha.webp" width="1520" height="2740" loading="lazy" alt="Planta desenhada da solução sem borracha: fios soltos na porcelana, bobina mestre no ar e bobina do prato em tubo de vidro com sulcos"></a>
-          <figcaption>A solução do ferro-velho: o ar faz o papel da borracha. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="pendente">Bitolas, comprimentos e custo a definir com o mestre.</p>
-      </div>
-    </details>
-  </article>
-
-  <article class="projeto est-uso" id="projeto-07">
-    <details>
-      <summary>
-        <span class="proj-marca" aria-hidden="true">07</span>
-        <span class="proj-topo">
-          <span class="proj-n">Projeto 07</span>
-          <span class="proj-estado">Em uso</span>
-        </span>
-        <h3 class="proj-nome">Bomba de fumaça</h3>
-        <span class="proj-sub">pra despistar e fugir</span>
-        <span class="proj-data">Criado em <time datetime="2026-10-30">30/10/2026</time></span>
-        <span class="proj-pe">
-          <span class="carimbo">Pendente de aprovação do mestre</span>
-          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
-        </span>
-      </summary>
-      <div class="proj-corpo">
-        <p class="nota">Invenção do Kairon, feita de sucata</p>
-        <p class="corpo">A bomba é uma lata de latão grosso, de sucata do ferro-velho. A tampa é rosqueada e fecha a lata, e tem furos em círculo, pra fumaça sair por todos os lados.</p>
-        <p class="corpo">A fumaça arde nos olhos e na garganta. Quem entra tosse e sai correndo, sem saber pra onde. Não mata, e o vento muda tudo. O Marck testa de máscara de gás, com o vento a favor.</p>
-        <figure class="planta">
-          <a href="img/planta-07-bomba-de-fumaca.webp" target="_blank" rel="noopener"><img src="img/planta-07-bomba-de-fumaca.webp" width="1520" height="2580" loading="lazy" alt="Planta desenhada do Projeto 07, Bomba de fumaça: a lata, a tampa com furos e o efeito da fumaça"></a>
-          <figcaption>A lata, a tampa e o efeito da fumaça. Toque na imagem pra ampliar.</figcaption>
-        </figure>
-        <p class="pendente">Conteúdo, alcance e duração a definir com o mestre.</p>
-      </div>
-    </details>
-  </article>
-
   <article class="projeto est-uso" id="projeto-08">
     <details>
       <summary>
@@ -682,7 +494,7 @@
           <span class="proj-n">Projeto 08</span>
           <span class="proj-estado">Em uso</span>
         </span>
-        <h3 class="proj-nome">Manopla hidráulica</h3>
+        <h4 class="proj-nome">Manopla hidráulica</h4>
         <span class="proj-sub">Giftklaue II</span>
         <span class="proj-data">Criado em <time datetime="2026-10-31">31/10/2026</time></span>
         <span class="proj-pe">
@@ -734,6 +546,158 @@
     </details>
   </article>
 
+  <article class="projeto est-andamento" id="projeto-12">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">12</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 12</span>
+          <span class="proj-estado">Em andamento</span>
+        </span>
+        <h4 class="proj-nome">Giftklaue III</h4>
+        <span class="proj-sub">manopla leve, com ataque duplo</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-31">31/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo">Pendente de aprovação do mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">A terceira versão da manopla. A <a class="ir" href="#projeto-08" data-aba="projetos" data-abrir="projeto-08">Giftklaue II</a> está pronta e aprovada, mas pesa 12 kg e ativar custa 1 ação e 5 de energia. A III nasce pra pesar menos e pra bater duas vezes.</p>
+        <p class="corpo">São três mudanças. A armação vira duralumínio, uma liga de alumínio e cobre descoberta pelo alemão Alfred Wilm em 1903, com uns 1/3 do peso do aço. O aço fica só nas peças que seguram pressão. O peso sai do braço do Marck e vai pro quadril, por um arnês de cintura. E a cotoveleira ganha um engate rápido: a luva solta do braço e cabe no estojo ou na mochila.</p>
+        <p class="rotulo">O ataque duplo</p>
+        <p class="corpo">O gatilho tem dois estágios. Puxado até o meio, dá um golpe só. Puxado até o fim, a luva golpeia, a mola reabre as garras e um relógio de relojoeiro (barrilete, came, escape de alavanca e balancim) conta um tic. Um segundo acumulador, menor, dá o segundo golpe. O Marck golpeia uma vez com o braço e a luva faz o outro sozinha. A bomba do punho dá corda no relógio, aos poucos.</p>
+        <p class="rotulo">O que muda da II pra III</p>
+        <ul class="pontos">
+          <li><strong>Peso:</strong> a II tem 12 kg, a III vem bem mais leve. Quanto cai, o mestre decide.</li>
+          <li><strong>Armação:</strong> de aço e couro pra duralumínio vazado.</li>
+          <li><strong>Carga:</strong> de tudo no braço pra um arnês de cintura.</li>
+          <li><strong>Ativar:</strong> a II custa 1 ação e 5 de energia. Na III o mestre decide, já que a luva pesa menos e o Marck está mais forte.</li>
+          <li><strong>Golpes:</strong> de 1 por ação pra 1 ou 2 por ação.</li>
+          <li><strong>Transporte:</strong> engate rápido, a luva desmonta.</li>
+        </ul>
+        <p class="corpo">O Marck também melhora: está treinando e comendo melhor. A luva ajuda, mas o corpo dele conta cada vez mais.</p>
+        <figure class="planta">
+          <a href="img/planta-12-giftklaue-iii.webp" target="_blank" rel="noopener"><img src="img/planta-12-giftklaue-iii.webp" width="1520" height="5440" loading="lazy" alt="Planta desenhada do Projeto 12, Giftklaue III: vista de cima, o que muda da II, o relógio do ataque duplo e as peças"></a>
+          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="rotulo">Limites</p>
+        <ul class="pontos">
+          <li>O segundo golpe sai de um acumulador menor, então pode ser mais fraco.</li>
+          <li>O golpe duplo gasta o dobro de óleo e esvazia os dois acumuladores. Entre um e outro, tem que bombear e dar corda de novo.</li>
+          <li>O relógio emperra com sujeira e umidade.</li>
+          <li>O duralumínio amassa e dobra mais fácil que o aço.</li>
+        </ul>
+        <p class="pendente">Peso final, custo de ação e energia e dano do segundo golpe: a definir com o mestre.</p>
+      </div>
+    </details>
+  </article>
+  </section>
+
+  <section class="proj-grupo" id="grupo-venenos">
+    <header class="grupo-cab">
+      <h3 class="grupo-titulo">Venenos</h3>
+      <p class="grupo-desc">O que corre pelos tubos.</p>
+    </header>
+
+  <article class="projeto est-andamento" id="projeto-02">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">02</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 02</span>
+          <span class="proj-estado">Em andamento</span>
+        </span>
+        <h4 class="proj-nome">Ruína</h4>
+        <span class="proj-data">Criado em <time datetime="2026-10-20">20/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo aprovado">Aprovado pelo mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Experimento do Kairon, em andamento</p>
+        <p class="corpo">Os outros viam um remédio. Kairon viu uma ferramenta.</p>
+        <p class="corpo">A droga da doutora estava na enfermaria da base, e ele passava por lá mais do que precisava. Não era pelos doentes. Era pra ouvir. Quando o remédio entrava, as células do paciente recebiam a ordem de se refazer numa velocidade que nenhum corpo foi feito pra suportar, e o homem na maca gritava como se o costurassem por dentro com agulha em brasa. As enfermeiras desviavam o olhar. Kairon abria o caderno e anotava o tempo entre um grito e outro.</p>
+        <p class="corpo">Todos ali queriam que a dor parasse. Ele queria saber por que ela existia. E quanto mais perguntava, mais uma ideia se fechava na cabeça dele, limpa e fria: a fórmula não curava ninguém. Ela só empurrava a vida da célula pra frente, mais rápido do que a célula aguentava. A cura era um efeito colateral de uma força que ele podia apontar pro outro lado.</p>
+        <p class="corpo">O arsênio já fazia metade do trabalho. Ele não rasga nem queima por fora. Entra quieto e apaga a energia da célula por dentro. Agora imagine essa célula, sem fôlego, recebendo a ordem de se reconstruir sem parar. Kairon imaginou, e riu sozinho na bancada, às três da manhã, com a mão tremendo de empolgação. Não lembrava da última vez que tinha comido.</p>
+        <p class="corpo">Ele sabia o que aquilo era. Conhecimento era a única coisa que ele não conseguia largar. Projeto, projeto, projeto. Cada resposta abria duas perguntas, e ele precisava da próxima como outros homens precisam da próxima dose. Se alguém dissesse que ele estava viciado, concordaria sem vergonha nenhuma.</p>
+        <p class="corpo">O resultado, no papel dele, é uma morte que começa pequena. A pele em volta do corte fica cinza e cede. O corpo enfraquece, o osso perde a firmeza, e por fim a medula, onde o sangue nasce, para de responder. Cada célula que cai solta o próprio veneno sobre as vizinhas. Não precisa de segunda dose. A ruína anda sozinha.</p>
+        <p class="corpo">Ele tentou levar aquilo pro ar, um gás pras trincheiras. No ar, o composto se desmanchava antes de chegar a alguém, e Kairon passou duas noites sem falar com ninguém, furioso com um problema que se recusava a obedecer. Foi quando olhou pras garras das manoplas e entendeu que a resposta sempre esteve ali: levar o veneno direto à carne, sem dar tempo dele se perder.</p>
+        <p class="corpo">Alguém poderia perguntar quantos teriam que cair até ele aprender o que queria. Kairon nunca fez essa conta. Não por descuido. O número simplesmente não mudava a resposta.</p>
+        <p class="corpo">Restam três coisas que ele ainda anota: o arsênio corrói os tubos, então o composto não pode esperar guardado por muito tempo; o efeito completo leva dias; e a velocidade que ele quer só vem com um catalisador arcano que ele ainda não domina. Antídoto não existe, e não é a prioridade dele.</p>
+        <p class="corpo">Na última página do caderno, com a letra apertada de quem não dorme, tem uma única frase sublinhada duas vezes: falta pouco.</p>
+        <figure class="planta">
+          <a href="img/planta-02-ruina.webp" target="_blank" rel="noopener"><img src="img/planta-02-ruina.webp" width="1520" height="2524" loading="lazy" alt="Planta desenhada do Projeto 02, Ruína"></a>
+          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="pendente">Efeitos e tempos pendentes de aprovação do mestre</p>
+      </div>
+    </details>
+  </article>
+
+  <article class="projeto est-uso" id="projeto-03">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">03</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 03</span>
+          <span class="proj-estado">Em uso no protótipo</span>
+        </span>
+        <h4 class="proj-nome">Veneno de luta</h4>
+        <span class="proj-sub">nome a definir</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-23">23/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo aprovado">Aprovado pelo mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="corpo">O veneno que já corre pelos tubos do protótipo. Deixa o corpo da vítima dormente e derruba os atributos físicos dela. Efeito, duração e origem pendentes de aprovação do mestre.</p>
+        <figure class="planta">
+          <a href="img/planta-03-veneno-de-luta.webp" target="_blank" rel="noopener"><img src="img/planta-03-veneno-de-luta.webp" width="1520" height="2620" loading="lazy" alt="Planta desenhada do Projeto 03, Veneno de luta, com os materiais"></a>
+          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+      </div>
+    </details>
+  </article>
+  </section>
+
+  <section class="proj-grupo" id="grupo-campo">
+    <header class="grupo-cab">
+      <h3 class="grupo-titulo">Equipamento de campo</h3>
+      <p class="grupo-desc">O que ele leva pra rua.</p>
+    </header>
+
+  <article class="projeto est-uso" id="projeto-07">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">07</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 07</span>
+          <span class="proj-estado">Em uso</span>
+        </span>
+        <h4 class="proj-nome">Bomba de fumaça</h4>
+        <span class="proj-sub">pra despistar e fugir</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-30">30/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo">Pendente de aprovação do mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Invenção do Kairon, feita de sucata</p>
+        <p class="corpo">A bomba é uma lata de latão grosso, de sucata do ferro-velho. A tampa é rosqueada e fecha a lata, e tem furos em círculo, pra fumaça sair por todos os lados.</p>
+        <p class="corpo">A fumaça arde nos olhos e na garganta. Quem entra tosse e sai correndo, sem saber pra onde. Não mata, e o vento muda tudo. O Marck testa de máscara de gás, com o vento a favor.</p>
+        <figure class="planta">
+          <a href="img/planta-07-bomba-de-fumaca.webp" target="_blank" rel="noopener"><img src="img/planta-07-bomba-de-fumaca.webp" width="1520" height="2580" loading="lazy" alt="Planta desenhada do Projeto 07, Bomba de fumaça: a lata, a tampa com furos e o efeito da fumaça"></a>
+          <figcaption>A lata, a tampa e o efeito da fumaça. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="pendente">Conteúdo, alcance e duração a definir com o mestre.</p>
+      </div>
+    </details>
+  </article>
+
   <article class="projeto est-andamento" id="projeto-09">
     <details>
       <summary>
@@ -742,7 +706,7 @@
           <span class="proj-n">Projeto 09</span>
           <span class="proj-estado">Em andamento</span>
         </span>
-        <h3 class="proj-nome">Mochila alquímica</h3>
+        <h4 class="proj-nome">Mochila alquímica</h4>
         <span class="proj-sub">kit de campo</span>
         <span class="proj-data">Criado em <time datetime="2026-10-31">31/10/2026</time></span>
         <span class="proj-pe">
@@ -772,6 +736,185 @@
     </details>
   </article>
 
+  <article class="projeto est-andamento" id="projeto-11">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">11</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 11</span>
+          <span class="proj-estado">Em andamento</span>
+        </span>
+        <h4 class="proj-nome">Bota de agilidade</h4>
+        <span class="proj-sub">Federschritt, nome a definir</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-31">31/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo">Pendente de aprovação do mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Pra ganhar agilidade: uma bota que guarda a energia do passo e devolve de uma vez.</p>
+        <p class="corpo">O Marck é fraco, então resolveu a velocidade com engenharia. A bota tem uma coluna de mola atrás da perna, no estilo da perna de molas que o russo Nicholas Yagn patenteou em 1890, e um fole de couro no calcanhar. Cada passo aperta o fole e empurra um pouco de óleo pra um acumulador de latão, que guarda a pressão. Um manômetro mostra quanta carga a bota tem.</p>
+        <p class="corpo">Pra soltar, o Marck empurra a alavanca de ponta com o dedão. Um cabo de aço dentro de uma bainha (o cabo Bowden) abre a válvula, a mola do acumulador empurra o óleo pro cilindro de impulso, no salto, e a sapata de aço empurra o chão. Uma trava de segurança, com pino e argola, evita que a carga saia sozinha.</p>
+        <p class="rotulo">Pra que serve</p>
+        <ul class="pontos">
+          <li><strong>Salto:</strong> o impulso empurra reto pra cima.</li>
+          <li><strong>Desvio:</strong> ele inclina o corpo pro lado e solta, pra uma esquiva rápida.</li>
+          <li><strong>Arrancada:</strong> ele inclina pra frente e solta, pra um tranco curto de velocidade.</li>
+        </ul>
+        <p class="corpo">A bota não cria força. Ela guarda a do próprio passo e devolve de uma vez, com o mesmo óleo e as mesmas peças da <a class="ir" href="#projeto-08" data-aba="projetos" data-abrir="projeto-08">manopla (Projeto 08)</a>.</p>
+        <figure class="planta">
+          <a href="img/planta-11-bota-agilidade.webp" target="_blank" rel="noopener"><img src="img/planta-11-bota-agilidade.webp" width="1520" height="5664" loading="lazy" alt="Planta desenhada do Projeto 11, Bota de agilidade: vista de lado, o circuito do óleo no salto, como carrega e solta, e as peças"></a>
+          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="rotulo">Limites</p>
+        <ul class="pontos">
+          <li>Só carrega andando ou correndo. Parado, não junta nada.</li>
+          <li>Cada impulso gasta a carga que o manômetro mostra.</li>
+          <li>Faz barulho: o fole chia e a sapata bate no chão.</li>
+          <li>Óleo vazando ou ar na linha deixa o impulso fraco.</li>
+          <li>O Marck é fraco: a coluna leva o peso da bota pro chão, não pro joelho, mas a bota pesa.</li>
+        </ul>
+        <p class="pendente">Altura do pulo, distância do desvio, custo de ação e energia e quanto tempo pra carregar: a definir com o mestre.</p>
+      </div>
+    </details>
+  </article>
+  </section>
+
+  <section class="proj-grupo" id="grupo-som">
+    <header class="grupo-cab">
+      <h3 class="grupo-titulo">Som e comunicação</h3>
+      <p class="grupo-desc">Rádio, voz de trovão e os fios que ligam tudo.</p>
+    </header>
+
+  <article class="projeto est-uso" id="projeto-04">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">04</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 04</span>
+          <span class="proj-estado">Em uso</span>
+        </span>
+        <h4 class="proj-nome">Rádio de frequências</h4>
+        <span class="proj-sub">nome a definir</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-23">23/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo aprovado">Aprovado pelo mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Invenção do Kairon, em uso</p>
+        <p class="corpo">Kairon fez esse rádio com um objetivo: não ser percebido como espião. É a forma que ele tem de se comunicar com os outros.</p>
+        <p class="corpo">O rádio é único. Em vez de falar numa frequência só, ele usa diferentes frequências, e isso disfarça o sinal. Quem escuta não consegue dizer de onde a transmissão sai.</p>
+        <p class="corpo">Os Aliados sabem que existe uma mensagem sendo transmitida. Mas não conseguem acessá-la e não conseguem localizar de onde ela parte. O único ponto que dá pra achar é o que recebe, na Alemanha.</p>
+        <p class="corpo">É por esse rádio que Kairon fala com a Hydra, e é nele que ele filtra tudo. A Hydra recebe só o que ele escolhe mandar.</p>
+        <p class="corpo">Em aberto: quem recebe do outro lado, na Alemanha, e se os Aliados conseguiriam chegar até esse ponto.</p>
+        <figure class="planta">
+          <a href="img/planta-04-radio-de-frequencias.webp" target="_blank" rel="noopener"><img src="img/planta-04-radio-de-frequencias.webp" width="1520" height="1920" loading="lazy" alt="Planta desenhada do Projeto 04, Rádio de frequências"></a>
+          <figcaption>Planta do projeto. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="pendente">Alcance, dificuldade pra rastrear e quem recebe do outro lado pendentes de aprovação do mestre.</p>
+      </div>
+    </details>
+  </article>
+
+  <article class="projeto est-andamento" id="projeto-05">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">05</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 05</span>
+          <span class="proj-estado">Em andamento</span>
+        </span>
+        <h4 class="proj-nome">Donnerstimme</h4>
+        <span class="proj-sub">Voz de Trovão</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-24">24/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo aprovado">Aprovado pelo mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Invenção do Kairon, pro show na cidade</p>
+        <p class="corpo">A Donnerstimme é um sistema de som pra cidade inteira. O plano é um show, e naquela cidade todas as fontes de comunicação vão estar bloqueadas. A voz não pode depender de nada que o bloqueio alcance.</p>
+        <p class="corpo">O microfone é de cobre, mas não fala direto pros pratos. A voz primeiro é gravada num disco de cera, que gira a 78 voltas por minuto. Uma agulha corta a voz na cera e, cerca de 6 voltas depois, outra agulha lê o que acabou de ser gravado. O resultado é um atraso de uns 5 segundos entre quem fala e o som que sai pela cidade.</p>
+        <p class="corpo">A máquina tem dois lados. No lado frio ficam o microfone e a gravação, sem nenhuma pedra, porque a cera derrete perto delas. No lado quente ficam a agulha de leitura, o amplificador (com válvula e pedra de éter) e o transmissor de saltos, que pula entre frequências pro sinal não ficar parado num lugar só.</p>
+        <figure class="planta">
+          <a href="img/planta-05-donnerstimme.webp" target="_blank" rel="noopener"><img src="img/planta-05-donnerstimme.webp" width="1520" height="2592" loading="lazy" alt="Planta desenhada do Projeto 05, Donnerstimme: caminho do som e disco de cera"></a>
+          <figcaption>Caminho do som e disco de cera. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="rotulo">O sinal pela magnetita</p>
+        <p class="corpo">O sinal não vai por fio até a cidade. A magnetita mestre, com uma bobina de 5 voltas de fio de cobre, manda o sinal pelo ar, e cada prato de som tem uma magnetita irmã que escuta e repete. No caminho, o sinal pula entre diferentes correntes de rádio.</p>
+        <figure class="planta">
+          <a href="img/planta-05-magnetita.webp" target="_blank" rel="noopener"><img src="img/planta-05-magnetita.webp" width="1520" height="2592" loading="lazy" alt="Planta desenhada do Projeto 05, Donnerstimme: o sinal indo da magnetita mestre pras magnetitas irmãs dos pratos"></a>
+          <figcaption>O sinal da magnetita mestre pras irmãs dos pratos. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="rotulo">Os pratos de som</p>
+        <p class="corpo">Os pratos ficam espalhados pela cidade, longe do palco, pra a voz que sai deles não voltar pro microfone e virar ruído. A casca é de zinco (cobre no prato mestre) e a moldura é de madeira seca, presa com parafusos de latão. No foco fica uma lâmina de mica, que treme com o sinal e vira voz. Atrás do prato, a magnetita irmã com a bobina de cobre. Ferro e aço ficam longe da magnetita.</p>
+        <figure class="planta">
+          <a href="img/planta-05-pratos-de-som.webp" target="_blank" rel="noopener"><img src="img/planta-05-pratos-de-som.webp" width="1520" height="2664" loading="lazy" alt="Planta desenhada de um prato de som da Donnerstimme, visto de lado, com os materiais"></a>
+          <figcaption>Prato de som visto de lado, com os materiais. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="corpo">Os fios dessa máquina, e o problema de fazer tudo sem borracha, estão no <a class="ir" href="#projeto-06" data-aba="projetos" data-abrir="projeto-06">Projeto 06</a>.</p>
+        <p class="corpo">Em aberto: de onde vem a magnetita.</p>
+        <p class="pendente">Tamanho, quantidade de pratos, alcance e custo a definir com o mestre.</p>
+      </div>
+    </details>
+  </article>
+
+  <article class="projeto est-andamento" id="projeto-06">
+    <details>
+      <summary>
+        <span class="proj-marca" aria-hidden="true">06</span>
+        <span class="proj-topo">
+          <span class="proj-n">Projeto 06</span>
+          <span class="proj-estado">Em andamento</span>
+        </span>
+        <h4 class="proj-nome">Fiação</h4>
+        <span class="proj-sub">parte da Donnerstimme</span>
+        <span class="proj-data">Criado em <time datetime="2026-10-24">24/10/2026</time></span>
+        <span class="proj-pe">
+          <span class="carimbo aprovado">Aprovado pelo mestre</span>
+          <span class="proj-abrir"><span class="so-fechado">Toque pra ler</span><span class="so-aberto">Fechar</span></span>
+        </span>
+      </summary>
+      <div class="proj-corpo">
+        <p class="nota">Parte da Donnerstimme, em andamento</p>
+        <p class="corpo">Cada pedaço da Donnerstimme pede um fio diferente, e foi isso que travou o primeiro teste: Kairon tratou todo fio como se fosse igual.</p>
+        <p class="corpo">Na bobina mestre, que manda o sinal, vão poucas voltas de fio grosso. Ali passa força, e fio fino esquentaria e perderia a voz no caminho. Já na bobina de cada prato, que só escuta, vão muitas voltas de fio fino, bem juntinhas. Quanto mais voltas, mais a magnetita ouve.</p>
+        <p class="corpo">Da agulha de leitura até o amplificador o sinal é fraco, quase um sussurro, então vai fio médio, curto, com o fio de ida e o de volta afastados e presos. Do amplificador pro transmissor, e da bateria pros dois, só fio grosso. É onde a força corre.</p>
+        <p class="corpo">Fio de sinal nunca anda colado em fio de força, senão um contamina o outro. Toda emenda é soldada.</p>
+        <figure class="planta">
+          <a href="img/planta-06-fiacao.webp" target="_blank" rel="noopener"><img src="img/planta-06-fiacao.webp" width="1520" height="2550" loading="lazy" alt="Planta desenhada do Projeto 06, Fiação, com a espessura de cada fio"></a>
+          <figcaption>Caminho dos fios e a espessura de cada um. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="rotulo">O problema: sem borracha</p>
+        <p class="corpo curto"><em>Marck, no ferro-velho</em></p>
+        <p class="corpo">Não tinha borracha. Não tinha capa, nem seda, nem nada que servisse de pele para o cobre. Os fios ficaram nus, e fio nu não perdoa. Eles se enrolaram um no outro, encostaram, e a máquina morreu com um estalo seco e um cheiro de queimado.</p>
+        <p class="corpo">Marck ficou parado olhando a fumaça subir. Não xingou. Ele nunca xingava quando tinha ideia vindo. Passou a língua nos dentes e começou a revirar o ferro-velho com as duas mãos.</p>
+        <p class="corpo">"Se eu não posso cobrir o fio", disse, "então ninguém vai encostar nele. O ar vai ser a minha borracha."</p>
+        <p class="corpo">Achou isoladores velhos de telégrafo, daqueles de porcelana branca, rachados no canto mas inteiros no que importava. Pregou uma tábua de madeira seca na bancada, sem prego de ferro, e aparafusou os isoladores em fila. Os fios de ida e de volta passaram por eles, bem esticados e afastados, e entre os isoladores ele encaixou pequenos pentes de madeira para manter a distância sempre igual. Fio nenhum ia encostar em fio nenhum. Acabou o abraço entre eles.</p>
+        <p class="corpo">Depois veio a bobina mestre. Com o cobre grosso, que não cede nem se pedir, ele fez cinco voltas soltas no ar, uma hélice que se segurava sozinha. Dois pentes de madeira por baixo mantinham cada volta no seu lugar. No meio, a magnetita. Solda só nas pontas, duas gotas de estanho prendendo o cobre aos terminais. Entre as voltas, nenhuma solda. Só ar.</p>
+        <p class="corpo">A bobina do prato era a parte difícil. Fio fino, muitas voltas, e sem capa. Marck pegou um tubo de vidro do kit químico e, com uma lima triangular, abriu um sulco em espiral, devagar, com a respiração presa. Cada volta do fio ia dormir no seu próprio sulco, com uma crista de vidro entre ela e a vizinha. Uma camada só, num tubo comprido. Quando terminou, passou cera derretida por cima, para as voltas não saírem do lugar e a umidade não entrar. Prendeu as pontas com solda e soprou.</p>
+        <p class="corpo">Limpou as mãos na calça e olhou para a obra. Era feio, era improvisado e era dele.</p>
+        <p class="corpo">Ligou a bateria. E esperou o mestre dizer se funcionava.</p>
+        <figure class="planta">
+          <a href="img/planta-06b-fios-sem-borracha.webp" target="_blank" rel="noopener"><img src="img/planta-06b-fios-sem-borracha.webp" width="1520" height="2740" loading="lazy" alt="Planta desenhada da solução sem borracha: fios soltos na porcelana, bobina mestre no ar e bobina do prato em tubo de vidro com sulcos"></a>
+          <figcaption>A solução do ferro-velho: o ar faz o papel da borracha. Toque na imagem pra ampliar.</figcaption>
+        </figure>
+        <p class="pendente">Bitolas, comprimentos e custo a definir com o mestre.</p>
+      </div>
+    </details>
+  </article>
+  </section>
+
+  <section class="proj-grupo" id="grupo-casa">
+    <header class="grupo-cab">
+      <h3 class="grupo-titulo">Casa e oficina</h3>
+      <p class="grupo-desc">Onde ele mora e trabalha.</p>
+    </header>
+
   <article class="projeto est-uso" id="projeto-10">
     <details>
       <summary>
@@ -780,7 +923,7 @@
           <span class="proj-n">Projeto 10</span>
           <span class="proj-estado">Em uso</span>
         </span>
-        <h3 class="proj-nome">Laboratório</h3>
+        <h4 class="proj-nome">Laboratório</h4>
         <span class="proj-sub">onde o Marck mora</span>
         <span class="proj-data">Criado em <time datetime="2026-10-31">31/10/2026</time></span>
         <span class="proj-pe">
@@ -829,6 +972,7 @@
       </div>
     </details>
   </article>
+  </section>
 </section>
 
 </main>
@@ -837,6 +981,6 @@
   <p>Arte do personagem assinada STN.</p>
 </footer>
 
-<script src="app.js?v=24"></script>
+<script src="app.js?v=25"></script>
 </body>
 </html>

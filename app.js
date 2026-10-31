@@ -42,6 +42,7 @@
   function abrirCartao(id) {
     var cartao = document.getElementById(id);
     if (!cartao) return;
+    if (cartao.classList.contains('busca-oculto') && window.kaironLimparProjetos) window.kaironLimparProjetos();
     var det = cartao.querySelector('details');
     if (det) det.open = true;
     cartao.scrollIntoView({ block: 'start' });
@@ -950,4 +951,197 @@
     campo.focus();
   });
   filtrar();
+})();
+
+
+/* ---------- Projetos: sumário, busca e filtros ---------- */
+(function () {
+  var painel = document.getElementById('painel-projetos');
+  var sumario = document.getElementById('proj-sumario');
+  var campo = document.getElementById('busca-proj');
+  var limpar = document.getElementById('busca-proj-limpar');
+  var info = document.getElementById('busca-proj-info');
+  var vazio = document.getElementById('proj-vazio');
+  var resumo = document.getElementById('proj-resumo');
+  var chipsBox = document.getElementById('proj-filtros');
+  var recolher = document.getElementById('proj-recolher');
+  if (!painel || !sumario || !campo || !chipsBox) return;
+
+  function norm(s) {
+    s = String(s).toLowerCase();
+    if (s.normalize) s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return s;
+  }
+
+  function txt(el, sel) {
+    var e = el.querySelector(sel);
+    return e ? e.textContent.replace(/\s+/g, ' ').trim() : '';
+  }
+
+  function criar(tag, classe, texto) {
+    var e = document.createElement(tag);
+    if (classe) e.className = classe;
+    if (texto) e.textContent = texto;
+    return e;
+  }
+
+  var ESTADOS = [['est-uso', 'uso', 'Em uso'], ['est-andamento', 'andamento', 'Em andamento'], ['est-prototipo', 'prototipo', 'Protótipo']];
+  var itens = [];
+  var grupos = [];
+
+  Array.prototype.slice.call(painel.querySelectorAll('.proj-grupo')).forEach(function (g) {
+    var titulo = txt(g, '.grupo-titulo');
+    var desc = txt(g, '.grupo-desc');
+    var blocoSum = criar('div', 'sum-grupo');
+    blocoSum.appendChild(criar('p', 'sum-titulo', titulo));
+    var lista = criar('ul', 'sum-lista');
+    blocoSum.appendChild(lista);
+    var grupo = { cartoes: g, sum: blocoSum, itens: [] };
+
+    Array.prototype.slice.call(g.querySelectorAll('.projeto')).forEach(function (c) {
+      var est = ESTADOS.filter(function (e) { return c.classList.contains(e[0]); })[0] || ['', 'outro', ''];
+      var aprovado = !!c.querySelector('.carimbo.aprovado');
+      var nome = txt(c, '.proj-nome');
+      var sub = txt(c, '.proj-sub');
+      var numero = txt(c, '.proj-marca');
+      var estado = txt(c, '.proj-estado');
+
+      var li = criar('li');
+      var a = criar('a', 'sum-item ' + est[0]);
+      a.href = '#' + c.id;
+      a.appendChild(criar('span', 'sum-n', numero));
+      var nm = criar('span', 'sum-nome', nome);
+      if (sub) nm.appendChild(criar('span', 'sum-sub', sub));
+      a.appendChild(nm);
+      var marcas = criar('span', 'sum-marcas');
+      marcas.appendChild(criar('span', 'sum-estado', est[2] || estado));
+      marcas.appendChild(criar('span', 'sum-sel ' + (aprovado ? 'ok' : 'pend'), aprovado ? 'aprovado' : 'pendente'));
+      a.appendChild(marcas);
+      li.appendChild(a);
+      lista.appendChild(li);
+
+      a.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        var det = c.querySelector('details');
+        if (det) det.open = true;
+        c.scrollIntoView({ block: 'start' });
+        atualizarRecolher();
+      });
+
+      var item = {
+        cartao: c, linha: li, estado: est[1], aprovado: aprovado,
+        texto: norm([numero, nome, sub, estado, titulo, desc, aprovado ? 'aprovado' : 'pendente'].join(' '))
+      };
+      itens.push(item);
+      grupo.itens.push(item);
+    });
+    grupos.push(grupo);
+    sumario.appendChild(blocoSum);
+  });
+
+  var filtro = 'todos';
+
+  // monta o resumo e os filtros (só aparecem os que têm projeto)
+  var nAprov = itens.filter(function (i) { return i.aprovado; }).length;
+  var nPend = itens.length - nAprov;
+  function plural(n, um, varios) { return n + ' ' + (n === 1 ? um : varios); }
+  resumo.innerHTML = '<b>' + plural(itens.length, 'projeto', 'projetos') + '.</b> ' +
+    plural(nAprov, 'aprovado pelo mestre', 'aprovados pelo mestre') + ', ' +
+    plural(nPend, 'pendente de aprovação', 'pendentes de aprovação') + '.';
+
+  var botoes = [];
+  function chip(chave, rotulo, n) {
+    if (chave !== 'todos' && n === 0) return;
+    var b = criar('button', 'chip');
+    b.type = 'button';
+    b.setAttribute('data-filtro', chave);
+    b.setAttribute('aria-pressed', 'false');
+    b.appendChild(document.createTextNode(rotulo));
+    b.appendChild(criar('b', '', String(n)));
+    b.addEventListener('click', function () {
+      filtro = (filtro === chave) ? 'todos' : chave;
+      atualizarChips();
+      aplicar();
+    });
+    chipsBox.appendChild(b);
+    botoes.push(b);
+  }
+  chip('todos', 'Todos', itens.length);
+  ESTADOS.forEach(function (e) {
+    chip(e[1], e[2], itens.filter(function (i) { return i.estado === e[1]; }).length);
+  });
+  chip('pendente', 'Pendentes', nPend);
+
+  function atualizarChips() {
+    botoes.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-filtro') === filtro ? 'true' : 'false');
+    });
+  }
+
+  function aplicar() {
+    var q = norm(campo.value).replace(/\s+/g, ' ').trim();
+    var palavras = q ? q.split(' ') : [];
+    var achados = 0;
+
+    itens.forEach(function (i) {
+      var okFiltro = filtro === 'todos' || (filtro === 'pendente' ? !i.aprovado : i.estado === filtro);
+      var okBusca = palavras.every(function (p) { return i.texto.indexOf(p) !== -1; });
+      var mostra = okFiltro && okBusca;
+      i.mostra = mostra;
+      i.cartao.classList.toggle('busca-oculto', !mostra);
+      i.linha.classList.toggle('busca-oculto', !mostra);
+      if (mostra) achados++;
+    });
+
+    grupos.forEach(function (g) {
+      var algum = g.itens.some(function (i) { return i.mostra; });
+      g.cartoes.classList.toggle('busca-oculto', !algum);
+      g.sum.classList.toggle('busca-oculto', !algum);
+    });
+
+    limpar.hidden = !campo.value;
+    var filtrando = palavras.length > 0 || filtro !== 'todos';
+    if (filtrando) {
+      info.hidden = false;
+      info.textContent = achados + ' de ' + itens.length;
+    } else {
+      info.hidden = true;
+    }
+    vazio.hidden = achados !== 0;
+  }
+
+  function atualizarRecolher() {
+    if (recolher) recolher.hidden = !painel.querySelector('.projeto details[open]');
+  }
+
+  window.kaironLimparProjetos = function () {
+    campo.value = '';
+    filtro = 'todos';
+    atualizarChips();
+    aplicar();
+  };
+
+  campo.addEventListener('input', aplicar);
+  campo.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Enter') { ev.preventDefault(); campo.blur(); }
+    if (ev.key === 'Escape') { campo.value = ''; aplicar(); }
+  });
+  limpar.addEventListener('click', function () {
+    campo.value = '';
+    aplicar();
+    campo.focus();
+  });
+
+  painel.addEventListener('toggle', atualizarRecolher, true);
+  if (recolher) {
+    recolher.addEventListener('click', function () {
+      Array.prototype.slice.call(painel.querySelectorAll('.projeto details[open]')).forEach(function (d) { d.open = false; });
+      atualizarRecolher();
+      sumario.scrollIntoView({ block: 'start' });
+    });
+  }
+
+  atualizarChips();
+  aplicar();
+  atualizarRecolher();
 })();
