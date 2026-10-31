@@ -113,6 +113,15 @@
         <div class="stat" data-chave="sede" data-nome="Sede" data-atual="9" data-max="10" data-cor="sede"><p class="stat-sem-js">Sede: <b>9</b> de 10</p></div>
       </div>
 
+      <div class="busca" role="search">
+        <label class="busca-rot" for="busca-item">Procurar item</label>
+        <div class="busca-campo">
+          <input id="busca-item" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="veneno, câmera, máscara...">
+          <button type="button" class="busca-limpar" id="busca-limpar" aria-label="Limpar a busca" hidden>&times;</button>
+        </div>
+        <p class="busca-info" id="busca-info" aria-live="polite" hidden></p>
+      </div>
+
       <h2>Equipamento inicial</h2>
       <ul class="itens">
         <li>
@@ -216,6 +225,8 @@
           <span>O dinheiro do mercado negro. Saldo na bolsa: <b data-saldo>375 dólares</b>. A quantia ainda fica pra combinar com o mestre. <a class="ir" href="#bolsa" data-aba="bolsa">Abrir a bolsa</a></span>
         </li>
       </ul>
+
+      <p class="busca-vazio" id="busca-vazio" hidden>Nenhum item com esse nome. Tenta outra palavra.</p>
 
       <h2>Detalhes do visual</h2>
       <p class="corpo">Só pra compor o personagem, sem peso na ficha: um livro grande e gasto, um frasco em forma de gato com água, um cabo dourado ornamentado preso à cintura e um brinco dourado.</p>

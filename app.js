@@ -888,3 +888,66 @@
 
   render();
 })();
+
+
+/* ---------- Busca de itens do inventário ---------- */
+(function () {
+  var campo = document.getElementById('busca-item');
+  var limpar = document.getElementById('busca-limpar');
+  var info = document.getElementById('busca-info');
+  var vazio = document.getElementById('busca-vazio');
+  var painel = document.getElementById('painel-ficha');
+  if (!campo || !painel) return;
+
+  function norm(s) {
+    s = String(s).toLowerCase();
+    if (s.normalize) s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return s;
+  }
+
+  function listas() {
+    return Array.prototype.slice.call(painel.querySelectorAll('ul.itens'));
+  }
+
+  function filtrar() {
+    var q = norm(campo.value).replace(/\s+/g, ' ').trim();
+    var palavras = q ? q.split(' ') : [];
+    var total = 0, achados = 0;
+
+    listas().forEach(function (ul) {
+      var visiveis = 0;
+      Array.prototype.slice.call(ul.children).forEach(function (li) {
+        total++;
+        var texto = norm(li.textContent);
+        var bate = palavras.every(function (p) { return texto.indexOf(p) !== -1; });
+        li.classList.toggle('busca-oculto', !bate);
+        if (bate) { visiveis++; achados++; }
+      });
+      var titulo = ul.previousElementSibling;
+      var esconde = visiveis === 0;
+      ul.classList.toggle('busca-oculto', esconde);
+      if (titulo && titulo.tagName === 'H2') titulo.classList.toggle('busca-oculto', esconde);
+    });
+
+    limpar.hidden = !campo.value;
+    if (palavras.length) {
+      info.hidden = false;
+      info.textContent = achados === 1 ? '1 item de ' + total : achados + ' itens de ' + total;
+    } else {
+      info.hidden = true;
+    }
+    vazio.hidden = !(palavras.length && achados === 0);
+  }
+
+  campo.addEventListener('input', filtrar);
+  campo.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Enter') { ev.preventDefault(); campo.blur(); }
+    if (ev.key === 'Escape') { campo.value = ''; filtrar(); }
+  });
+  limpar.addEventListener('click', function () {
+    campo.value = '';
+    filtrar();
+    campo.focus();
+  });
+  filtrar();
+})();

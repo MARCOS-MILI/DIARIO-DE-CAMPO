@@ -689,7 +689,90 @@ h2 {
   height: auto;
 }
 
+.itens li.com-imagem {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 5.6rem;
+  column-gap: 1rem;
+  align-items: start;
+}
+
+.itens li.com-imagem > strong,
+.itens li.com-imagem > span { grid-column: 1; }
+
+.itens .foto-item {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  display: block;
+}
+
+.itens .foto-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  border: 1.5px solid var(--linha);
+  border-radius: 6px;
+  background: #f3e9d2;
+}
+
 .itens.leve li { padding: 0.45rem 0; }
+
+/* Busca de itens */
+
+.busca { margin: 0 0 1.2rem; }
+
+.busca-rot {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--suave);
+  font: italic 400 1.2rem/1.2 var(--titulo);
+}
+
+.busca-campo { position: relative; }
+
+.busca input {
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.5rem 3rem 0.5rem 2.7rem;
+  border: 1.5px solid rgba(18, 26, 51, 0.6);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234d546b' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5L21 21'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+  background-size: 1.3rem;
+  color: var(--tinta);
+  font: 400 1.2rem/1.3 var(--texto);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.busca input::placeholder { color: var(--suave); opacity: 0.75; }
+.busca input::-webkit-search-cancel-button,
+.busca input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+
+.busca-limpar {
+  position: absolute;
+  top: 50%;
+  right: 0.3rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--suave);
+  font: 400 1.9rem/1 var(--texto);
+  cursor: pointer;
+}
+
+.busca-limpar[hidden] { display: none; }
+
+.busca-info { margin: 0.45rem 0 0; color: var(--suave); font-size: 1rem; }
+.busca-vazio { margin: 1rem 0 0; color: var(--suave); font-style: italic; }
+.busca-vazio[hidden], .busca-info[hidden] { display: none; }
+.busca-oculto { display: none !important; }
 .itens.leve strong { font-size: 1.15rem; }
 
 @media (min-width: 900px) {
