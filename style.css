@@ -931,7 +931,7 @@ h2 {
 /* ---------- Bolsa ---------- */
 
 .itens b { font-weight: 700; color: var(--tinta); font-variant-numeric: lining-nums tabular-nums; }
-.itens a.ir, .itens a.planta-link { color: var(--cobalto); text-underline-offset: 3px; }
+.itens a.ir, .itens a.planta-link, .pontos a.ir { color: var(--cobalto); text-underline-offset: 3px; }
 
 .bolsa-saldo {
   display: flex;
