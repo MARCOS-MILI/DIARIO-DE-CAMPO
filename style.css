@@ -718,6 +718,16 @@ h2 {
 
 .itens.leve li { padding: 0.45rem 0; }
 
+.itens .foto-item { text-decoration: none; }
+
+.itens span.pago {
+  margin-top: 0.3rem;
+  color: var(--veneno-esc);
+  font: italic 400 1.1rem/1.3 var(--titulo);
+}
+
+.bolsa-itens { margin-bottom: 0.6rem; }
+
 /* Busca de itens */
 
 .busca { margin: 0 0 1.2rem; }
