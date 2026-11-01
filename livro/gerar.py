@@ -30,7 +30,7 @@ TROCAS_NOME = [
 PROIBIDAS = ('kairon', 'flagon', 'hydra', 'agente duplo', 'duplo-agente', 'espião', 'alemanha', 'contato com o outro lado', 'recebe do outro lado')
 
 # O livro também não conta que o Marck é espião: sai a Hydra, os Aliados e a Alemanha.
-REMOVER_PARAGRAFOS = ['Os Aliados sabem que existe', 'É por esse rádio que', 'Em aberto: quem recebe do outro lado']
+REMOVER_PARAGRAFOS = ['Os Aliados sabem que existe', 'É por esse rádio que', 'Em aberto: quem recebe do outro lado', 'Realismo, pro mestre decidir']
 TROCAS_ESPIONAGEM = [
     ('com um objetivo: não ser percebido como espião. É a forma que ele tem de se comunicar com os outros.', 'pra se comunicar com os outros.'),
     ('Alcance, dificuldade pra rastrear e quem recebe do outro lado pendentes', 'Alcance e dificuldade pra rastrear pendentes'),
