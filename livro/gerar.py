@@ -17,6 +17,32 @@ VERSAO = sys.argv[1] if len(sys.argv) > 1 else '1'
 ROMANOS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 
 
+# O livro é "do Marck": onde o texto da ficha diz Kairon, aqui sai Marck.
+# Frases com artigo primeiro; o que sobrar cai na troca simples (e avisa).
+TROCAS_NOME = [
+    ('Kairon trabalha em', 'O Marck trabalha em'),
+    ('Kairon fez esse rádio', 'O Marck fez esse rádio'),
+    ('que Kairon fala', 'que o Marck fala'),
+    ('Kairon tratou', 'o Marck tratou'),
+    ('do Kairon', 'do Marck'),
+    ('Kairon', 'Marck'),
+]
+PROIBIDAS = ('kairon', 'flagon')
+
+
+def tirar_nome(corpo, cap_id):
+    for no in list(corpo.find_all(string=True)):
+        t = str(no)
+        if not re.search('kairon', t, re.I):
+            continue
+        novo = t
+        for velho, nv in TROCAS_NOME:
+            novo = novo.replace(velho, nv)
+        if re.search('kairon', novo, re.I):
+            print('AVISO: sobrou Kairon em', cap_id, '->', novo[:80])
+        no.replace_with(novo)
+
+
 def esc(t):
     return H.escape(t, quote=True)
 
@@ -49,12 +75,23 @@ def lerficha():
     return partes
 
 
+def origem_prancha(nome_img):
+    """Prancha do livro: usa livro/pranchas/NOME se existir (cópia sem o nome Kairon), senão a de img/."""
+    propria = os.path.join(AQUI, 'pranchas', os.path.basename(nome_img))
+    return propria if os.path.exists(propria) else os.path.join(AQUI, '..', nome_img)
+
+
+def caminho_prancha(nome_img):
+    propria = os.path.join(AQUI, 'pranchas', os.path.basename(nome_img))
+    return 'pranchas/' + os.path.basename(nome_img) if os.path.exists(propria) else '../' + nome_img
+
+
 def mini(nome_img):
     """Recorte do topo da prancha (miniatura leve pro livro). Devolve (caminho, largura, altura)."""
     base = os.path.splitext(os.path.basename(nome_img))[0]
     rel = 'mini/%s.webp' % base
     destino = os.path.join(AQUI, rel)
-    origem = os.path.join(AQUI, '..', nome_img)
+    origem = origem_prancha(nome_img)
     L, A = 760, 520
     if not os.path.exists(destino) or os.path.getmtime(destino) < os.path.getmtime(origem):
         from PIL import Image
@@ -72,7 +109,7 @@ def mini(nome_img):
 
 def figura(f):
     img = f.find('img')
-    src = '../' + img['src']
+    src = caminho_prancha(img['src'])
     pq, pl, pa = mini(img['src'])
     alt = img.get('alt', '')
     cap = texto(f.find('figcaption'))
@@ -85,7 +122,8 @@ def figura(f):
         esc(src), esc(alt), esc(pq), pl, pa, esc(alt), esc(cap))
 
 
-def corpo_html(corpo):
+def corpo_html(corpo, cap_id=''):
+    tirar_nome(corpo, cap_id)
     # links entre projetos viram links do livro
     for a in corpo.select('a.ir'):
         alvo = a.get('data-abrir', '')
@@ -159,7 +197,7 @@ def montar(partes):
                 c['id'], esc(c['nome']), sub, c['classe_estado'], esc(c['estado']), esc(c['iso']), esc(c['data']), selo)
             caps_sec.append(
                 '<section class="cap capitulo" id="cap-%s" data-tipo="capitulo" data-n="%s" data-titulo="%s"><div class="fluxo">\n%s\n%s\n</div></section>' % (
-                    c['id'], c['id'], esc(c['nome']), cab, corpo_html(c['corpo'])))
+                    c['id'], c['id'], esc(c['nome']), cab, corpo_html(c['corpo'], 'cap-' + c['id'])))
             itens.append('<li><a href="#cap-%s" data-cap="cap-%s"><span class="ind-n">%s</span><span class="ind-nome">%s%s</span>'
                          '<span class="ind-fio" aria-hidden="true"></span><span class="ind-sel %s" role="img" aria-label="%s"></span><span class="pg-num">000</span></a></li>' % (
                 c['id'], c['id'], c['id'], esc(c['nome']), ('<small>%s</small>' % esc(c['sub'])) if c['sub'] else '',
@@ -241,5 +279,8 @@ def montar(partes):
 if __name__ == '__main__':
     partes = lerficha()
     saida = montar(partes)
+    for palavra in PROIBIDAS:
+        if palavra in saida.lower():
+            raise SystemExit('ERRO: "%s" ainda aparece no livro, não publiquei.' % palavra)
     open(SAIDA, 'w', encoding='utf-8').write(saida)
     print('ok:', sum(len(p['caps']) for p in partes), 'projetos,', len(partes), 'partes,', len(saida), 'bytes')

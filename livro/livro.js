@@ -466,8 +466,8 @@
     var limite = Math.max(40, G.P * 0.16);
     trilho.classList.remove('arrastando');
     void trilho.offsetWidth;
-    if ((a.dx < -limite || v < -0.45) && G.cur + G.vistas < G.total) { irPara(G.cur + G.vistas); }
-    else if ((a.dx > limite || v > 0.45) && G.cur > 0) { irPara(G.cur - G.vistas); }
+    if ((a.dx < -limite || (a.dx < -24 && v < -0.45)) && G.cur + G.vistas < G.total) { irPara(G.cur + G.vistas); }
+    else if ((a.dx > limite || (a.dx > 24 && v > 0.45)) && G.cur > 0) { irPara(G.cur - G.vistas); }
     else { trilho.style.transform = 'translate3d(' + (-G.cur * G.P) + 'px,0,0)'; }
   }
   janela.addEventListener('pointerup', soltar);
