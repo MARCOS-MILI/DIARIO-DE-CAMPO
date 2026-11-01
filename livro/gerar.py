@@ -27,7 +27,31 @@ TROCAS_NOME = [
     ('do Kairon', 'do Marck'),
     ('Kairon', 'Marck'),
 ]
-PROIBIDAS = ('kairon', 'flagon')
+PROIBIDAS = ('kairon', 'flagon', 'hydra', 'agente duplo', 'duplo-agente', 'espião', 'alemanha', 'contato com o outro lado', 'recebe do outro lado')
+
+# O livro também não conta que o Marck é espião: sai a Hydra, os Aliados e a Alemanha.
+REMOVER_PARAGRAFOS = ['Os Aliados sabem que existe', 'É por esse rádio que', 'Em aberto: quem recebe do outro lado']
+TROCAS_ESPIONAGEM = [
+    ('com um objetivo: não ser percebido como espião. É a forma que ele tem de se comunicar com os outros.', 'pra se comunicar com os outros.'),
+    ('Alcance, dificuldade pra rastrear e quem recebe do outro lado pendentes', 'Alcance e dificuldade pra rastrear pendentes'),
+    ('Liga com o agente duplo e com o ', 'Liga com o '),
+    (', onde vende as informações', ''),
+    ('caderno do duplo-agente', 'caderno'),
+]
+
+
+def tirar_espionagem(corpo, cap_id):
+    for p in list(corpo.find_all('p')):
+        t = p.get_text(' ', strip=True)
+        if any(t.startswith(r) for r in REMOVER_PARAGRAFOS):
+            p.decompose()
+    for no in list(corpo.find_all(string=True)):
+        t = str(no)
+        novo = t
+        for velho, nv in TROCAS_ESPIONAGEM:
+            novo = novo.replace(velho, nv)
+        if novo != t:
+            no.replace_with(novo)
 
 
 def tirar_nome(corpo, cap_id):
@@ -124,6 +148,7 @@ def figura(f):
 
 def corpo_html(corpo, cap_id=''):
     tirar_nome(corpo, cap_id)
+    tirar_espionagem(corpo, cap_id)
     # links entre projetos viram links do livro
     for a in corpo.select('a.ir'):
         alvo = a.get('data-abrir', '')
